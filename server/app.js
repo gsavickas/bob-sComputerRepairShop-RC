@@ -1,19 +1,34 @@
 /**
+ * Title: app.js
+ * Author: Richard Krasso
+ * Modified By: James Pinson
+ * Date: 16 September 2021
+ * Description: This sets the main application file for our node.js server. 
+ */
+
+/**
  * Require statements
  */
 const express = require('express');
 const http = require('http');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
+
+
+/**
+ * Routes
+ */
+
+
+const SecurityQuestionApi = require('./routes/security-question-api');
 
 /**
  * App configurations
  */
 let app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended': true}));
+app.use(express.json());
+app.use(express.urlencoded({'extended': true}));
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../dist/bcrs')));
 app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
@@ -42,6 +57,9 @@ mongoose.connect(conn, {
 /**
  * API(s) go here...
  */
+
+
+app.use('/api/security-questions', SecurityQuestionApi);
 
 /**
  * Create and start server
