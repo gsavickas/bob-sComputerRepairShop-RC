@@ -52,6 +52,42 @@ router.get('/', async(req, res) => {
     }
 });
 
+
+
+/**
+ * CreateSecurityQuestion API
+ */
+ router.post('/', async(req,res)  =>{
+    try{
+        let newSecurityQuestion = {
+            text: req.body.text
+        };
+        SecurityQuestion.create(newSecurityQuestion, function(err, securityQuestion) {
+            if(err){
+                console.log(err);
+                const createSecurityQuestionMongodbErrorResponse = new ErrorResponse(500, 'Internal Server error', err);
+                res.status(500).send(createSecurityQuestionMongodbErrorResponse.toObject());
+            }
+            else{
+                console.log(securityQuestion);
+                const createSecurityQuestionResponse = BaseResponse(200, 'Query Successful!', securityQuestion);
+                res.json(createSecurityQuestionResponse.toObject());
+            }
+        })
+    }
+      //catch exceptions of error responses
+      catch(e){
+        console.log(e);
+        const createSecurityQuestionCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);
+        res.status(500).send(createSecurityQuestionCatchErrorResponse .toObject());
+      }
+});
+
+
+
+
+
+
 //This is the FindbyId API.
 //This sets up our route using a get request. 
 router.get('/:id', async(req, res) => {
