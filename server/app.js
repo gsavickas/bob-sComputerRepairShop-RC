@@ -1,4 +1,12 @@
 /**
+ * * Title: app.js
+ * Author: Larry Ohaka
+ * Date: 08/22/21
+ * Description: app component
+ */
+
+
+/**
  * Require statements
  */
 const express = require('express');
@@ -7,6 +15,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
+const UserAPI = require('./routes/users-api');
 
 /**
  * App configurations
@@ -21,10 +30,10 @@ app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
 /**
  * Variables
  */
-const port = 3000; // server port
+ const port = process.env.PORT || 3000; // server port
 
 // TODO: This line will need to be replaced with your actual database connection string
-const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/bcrs?retryWrites=true&w=majority';
+const conn = 'mongodb+srv://bcrs_user:psswrd@cluster0.7thzg.mongodb.net/bcrsDB?retryWrites=true&w=majority';
 
 /**
  * Database connection
@@ -42,6 +51,8 @@ mongoose.connect(conn, {
 /**
  * API(s) go here...
  */
+
+ app.use('/api/users', UserAPI);
 
 /**
  * Create and start server
