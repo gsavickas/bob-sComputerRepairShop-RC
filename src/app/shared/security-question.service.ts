@@ -1,3 +1,10 @@
+/**
+ * * Title: security-question-list.component.ts
+ * Author: Larry
+ * Date: 09/19/21
+ * Description: Security question list angular code
+ */
+
 import { Injectable } from '@angular/core';
 import { SecurityQuestion } from './security-question.interface';
 import { HttpClient } from '@angular/common/http';
