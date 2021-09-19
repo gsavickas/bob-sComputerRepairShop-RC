@@ -16,9 +16,9 @@
  const ErrorResponse = require('../services/error-response');
  const UserRoleSchema = require('../schemas/user-role');
 const user = require("../models/user");
-/*
+/**
  const saltRounds = 10;
-*/
+ */
 
 
 
@@ -97,7 +97,7 @@ router.post('/', async(req, res) => {
     let newUser = {
       userName: req.body.userName,
       password: hashedPassword,
-      firstName: req.body.body.firstName,
+      firstName: req.body.firstName,
       lastName: req.body.lastName, 
       phoneNumber: req.body.phoneNumber, 
       address: req.body.address, 

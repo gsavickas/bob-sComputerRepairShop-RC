@@ -81,7 +81,7 @@ router.get('/', async(req, res) => {
             }
             else{
                 console.log(securityQuestion);
-                const createSecurityQuestionResponse = BaseResponse(200, 'Query Successful!', securityQuestion);
+                const createSecurityQuestionResponse = new BaseResponse(200, 'Query Successful!', securityQuestion);
                 res.json(createSecurityQuestionResponse.toObject());
             }
         })
