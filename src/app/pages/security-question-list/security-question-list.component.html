@@ -19,7 +19,7 @@
                 <div fxLayout="column" fxlayoutGap="10px">
                     <mat-form-field>
                         <!-- Security form input form-->
-                        <input type="text" matInput [formControl]="form.control['text']" placeholder="Question text" (keydown.enter)="create()"/>
+                        <input type="text" matInput [formControl]="form.controls['text']" placeholder="Question text" (keydown.enter)="create()"/>
                         <mat-error *ngIf="form.controls.text.hasError('required') && form.controls.text.touched" class="error">
                             Security question is a required field.
                         </mat-error> 
