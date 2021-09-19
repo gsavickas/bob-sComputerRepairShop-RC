@@ -30,6 +30,15 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
+import { MatCardModule } from '@angular/material/card';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CookieService } from 'ngx-cookie-service';
+import { MatMenuModule } from '@angular/material/menu'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatDividerModule } from '@angular/material/divider';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -44,7 +53,7 @@ import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delet
     UserDetailsComponent,
     UserListComponent,
     SigninComponent,
-    DeleteRecordDialogComponent
+    DeleteRecordDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +66,13 @@ import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delet
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatDividerModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
