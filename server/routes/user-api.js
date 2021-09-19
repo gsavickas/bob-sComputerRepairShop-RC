@@ -9,15 +9,39 @@
  const express = require("express");
 
  const User = require('../models/user');
- const bcrypt = require('bcryptjs');
+ const bcrypt = require('bcrypt');
  const Employee = require("../models/user");
  const router = express.Router();
  const BaseResponse = require('../services/base-response');
  const ErrorResponse = require('../services/error-response');
- const RoleSchema = require('../schemas/user-role');
-
+ const UserRoleSchema = require('../schemas/user-role');
+const user = require("../models/user");
+/*
  const saltRounds = 10;
+*/
 
+/**
+ * FindAll users
+ */
+router.get('/', async (req, res) => {
+  try{
+    user.find({}).where('isDisabled').equals(false).exec(function(err, users){
+      if (err){
+        console.log(err);
+        const findAllMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
+        res.status(500).send(findAllMongodbErrorResponse.toObject());
+      }else{
+        console.log(users);
+        const findAllUsersResponse = new BaseResponse(200, 'Query successful', users);
+        res.json(findAllUsersResponse.toObject());
+      }
+    })
+  }
+  catch (e) {
+    const findAllCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);
+    res.status(500).send(findAllCatchErrorResponse.toObject());
+  }
+})
 
   /**
  * FindById API

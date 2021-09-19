@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  Bob's Computer Repair Shop
+; Author: Grayton Savickas
+; Date:   18 Sep 2021
+; Description: App module
+;===========================================
+*/
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 

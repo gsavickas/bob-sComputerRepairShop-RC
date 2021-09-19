@@ -1,8 +1,7 @@
 /**
  * Title: app.js
- * Author: Richard Krasso
- * Modified By: James Pinson
- * Date: 18 September 2021
+ * Author: James Pinson, Grayton Savickas
+ * Date: 16 September 2021
  * Description: This sets the main application file for our node.js server. 
  */
 
@@ -12,6 +11,7 @@
 const express = require('express');
 const http = require('http');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 
@@ -19,8 +19,8 @@ const mongoose = require('mongoose');
 /**
  * Routes
  */
-const UserApi = require('./routes/user-api');
-const SessionApi = require('./routes/session-api');
+
+const UserApi = require('./routes/user-api')
 const SecurityQuestionApi = require('./routes/security-question-api');
 
 /**
@@ -30,13 +30,14 @@ let app = express();
 app.use(express.json());
 app.use(express.urlencoded({'extended': true}));
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, '../dist/bcrs')));
-app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
+app.use(express.static(path.join(__dirname, '../dist/bob-sComputerRepairShop-RC')));
+app.use('/', express.static(path.join(__dirname, '../dist/bob-sComputerRepairShop-RC')));
 
 /**
  * Variables
+ * Uses either the supplied port or port 3000 as default
  */
-const port = 3000; // server port
+const port = process.env.PORT || 3000; // server port
 
 // TODO: This line will need to be replaced with your actual database connection string
 const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/bcrs?retryWrites=true&w=majority';
@@ -47,7 +48,8 @@ const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/bcrs?re
 mongoose.connect(conn, {
   promiseLibrary: require('bluebird'),
   useUnifiedTopology: true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useCreateIndex:true
 }).then(() => {
   console.debug(`Connection to the database instance was successful`);
 }).catch(err => {
@@ -58,7 +60,6 @@ mongoose.connect(conn, {
  * API(s) go here...
  */
 app.use('/api/users', UserApi);
-app.use('/api/session', SessionApi);
 app.use('/api/security-questions', SecurityQuestionApi);
 
 
