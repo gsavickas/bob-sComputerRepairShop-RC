@@ -16,9 +16,8 @@
  const ErrorResponse = require('../services/error-response');
  const UserRoleSchema = require('../schemas/user-role');
 const user = require("../models/user");
-/*
+
  const saltRounds = 10;
-*/
 
 
 
