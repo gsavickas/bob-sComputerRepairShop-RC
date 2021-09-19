@@ -19,33 +19,40 @@
   /**
   * deleteUser API
   *  */ 
-   router.delete ('/:empId/tasks', async(req,res) =>{
+   router.delete ('/:id', async(req,res) =>{
     try{
  //In this projection it only returns the empId todo and done
-      Employee.findOne({'empId': req.params.empId}, 'empId todo done', function(err,employee){
-        if (err){
+      User.findOne({'_id': req.params.id},  function(err, user) {
+        //if error internal error response will be returned
+        if (err) {
           console.log(err);
-          //if error return this 501 error
-          res.status(501).send ({
-            'message': 'MongoDB Expectation:' + err.message
-          })      
-         }
-         //if no error return
-         else{
-           console.log(employee);
-           res.json(employee);
-           }
-      });
-    }
-    catch(e){
+          const deleteUserMongodbErrorResponse = new ErrorResponse(500, 'internal Server error', err);
+          res.status(500).send(deleteUserMongodbErrorResponse.toObject());
+           //if there is no error it wil save selected user
+        } else {
+          console.log(user);
+          user.set({
+            isDisabled: true
+          });
+          user.save(function(err, savedUser){
+            if(err) {
+              console.log(err);
+              const savedUserMongodbErrorResponse = new ErrorResponse(500, 'Internal Server error', err);
+              res.json(savedUserMongodbErrorResponse.toObject());
+            } else {
+              console.log(savedUser);
+              const savedUserResponse = new BaseResponse(200, 'Query successful', savedUser);
+              res.json(savedUserResponse.toObject());
+            }
+          })
+        }
+      })
+    } catch(e){
       console.log(e);
-      res.status(500).send({
-        'message': "internal server error" + e.message
-      });
+      const deleteUserCatchErrorResponse = new ErrorResponse(500, "internal server error", e.message);
+      res.status(500).send(deleteUserCatchErrorResponse.toObject());
     }
   });
-
-
 
 
   /**
