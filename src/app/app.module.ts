@@ -28,6 +28,7 @@ import { SecurityQuestionListComponent } from './pages/security-question-list/se
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
+import { SigninComponent } from './pages/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UserListComponent } from './pages/user-list/user-list.component';
     SecurityQuestionListComponent,
     UserCreateComponent,
     UserDetailsComponent,
-    UserListComponent
+    UserListComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,11 @@ const BaseResponse = require('../services/base-response');
 //Here we set up the express router. 
 const router = express.Router();
 
+
+
+
+//-------------------------------findAll API modified by Jimmy-------------------------------//
+
 //This is the FindAllAPI.
 
 //Here we set our route as a get request. 
@@ -54,6 +59,12 @@ router.get('/', async(req, res) => {
 
 
 
+
+
+
+
+//-------------------------------CreateSecurityQuestion API modified by Larry-------------------------------//
+
 /**
  * CreateSecurityQuestion API
  */
@@ -87,6 +98,9 @@ router.get('/', async(req, res) => {
 
 
 
+
+
+//-------------------------------FindById api modified by Jimmy-------------------------------//
 
 //This is the FindbyId API.
 //This sets up our route using a get request. 

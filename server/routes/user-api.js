@@ -20,6 +20,9 @@ const user = require("../models/user");
  const saltRounds = 10;
 */
 
+
+
+//-------------------------------FindById api modified by Grayton-------------------------------//
 /**
  * FindAll users
  */
@@ -43,6 +46,8 @@ router.get('/', async (req, res) => {
   }
 })
 
+
+ //-------------------------------FindById api modified by Larry-------------------------------//
   /**
  * FindById API
  */
@@ -72,8 +77,12 @@ router.get('/:id', async(req, res) =>{
   }
 });
 
-//This is the create user api. 
 
+
+//-------------------------------createUser api modified by Jimmy-------------------------------//
+/**
+ * createUser Api
+ */
 //We have a post request linked to the / route. 
 router.post('/', async(req, res) => {
   try {
@@ -121,8 +130,11 @@ router.post('/', async(req, res) => {
   }
 });
 
-//Update user api
 
+//-------------------------------UpdateUser api modified by Jimmy-------------------------------//
+/**
+ * Update user api
+ */
 router.put('/:id', async (req, res) => {
   try{
     User.findOne({'_id': req.params.id}, function( err, user){
@@ -163,6 +175,9 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+
+
+//-------------------------------deleteUser api modified by Larry-------------------------------//
  /**
   * deleteUser API
   *  */ 

@@ -33,6 +33,10 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../dist/bob-sComputerRepairShop-RC')));
 app.use('/', express.static(path.join(__dirname, '../dist/bob-sComputerRepairShop-RC')));
 
+
+
+//-------------------------------Database connection edited by Larry-------------------------------//
+
 /**
  * Variables
  * Uses either the supplied port or port 3000 as default
@@ -40,7 +44,7 @@ app.use('/', express.static(path.join(__dirname, '../dist/bob-sComputerRepairSho
 const port = process.env.PORT || 3000; // server port
 
 // TODO: This line will need to be replaced with your actual database connection string
-const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/bcrs?retryWrites=true&w=majority';
+const conn = 'mongodb+srv://bcrs_user:psswrd@cluster0.7thzg.mongodb.net/bcrsDB?retryWrites=true&w=majority';
 
 /**
  * Database connection
