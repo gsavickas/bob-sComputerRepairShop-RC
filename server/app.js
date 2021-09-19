@@ -2,7 +2,7 @@
  * Title: app.js
  * Author: Richard Krasso
  * Modified By: James Pinson
- * Date: 16 September 2021
+ * Date: 18 September 2021
  * Description: This sets the main application file for our node.js server. 
  */
 
@@ -19,8 +19,8 @@ const mongoose = require('mongoose');
 /**
  * Routes
  */
-
-
+const UserApi = require('./routes/user-api');
+const SessionApi = require('./routes/session-api');
 const SecurityQuestionApi = require('./routes/security-question-api');
 
 /**
@@ -57,9 +57,10 @@ mongoose.connect(conn, {
 /**
  * API(s) go here...
  */
-
-
+app.use('/api/users', UserApi);
+app.use('/api/session', SessionApi);
 app.use('/api/security-questions', SecurityQuestionApi);
+
 
 /**
  * Create and start server
