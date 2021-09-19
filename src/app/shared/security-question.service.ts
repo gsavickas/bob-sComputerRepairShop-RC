@@ -17,4 +17,24 @@ export class SecurityQuestionService {
   findSecurityQuestionById(questionId: string): Observable<any> {
     return this.http.get('/api/security-questions/' + questionId);
   }
+
+/**
+ * Angular create questions modified by Larry
+ * @param questionId 
+ * @returns 
+ */
+  createSecurityQuestion(newSecurityQuestion: SecurityQuestion): Observable<any> {
+    return this.http.post('/api/security-questions', {
+      text: newSecurityQuestion.text
+    })
+  }
+
+/**
+ * Angular delete questions modified by Larry
+ * @param questionId 
+ * @returns 
+ */
+  deleteSecurityQuestion(questionId: string): Observable<any> {
+    return this.http.delete('/api/security-questions/' + questionId)
+  }
 }
