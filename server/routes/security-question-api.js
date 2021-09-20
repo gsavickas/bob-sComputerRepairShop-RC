@@ -184,7 +184,7 @@ router.put('/:id', async(req, res) => {
 router.delete('/:id', async (req, res) => {
     try
     {
-        SecurityQuestion.findOne({'_id': req.params.id}, function(err, SecurityQuestion){
+        SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion){
             if (err){
                 console.log(err);
                 const deleteSecurityQuestionMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
@@ -194,7 +194,7 @@ router.delete('/:id', async (req, res) => {
                 console.log(securityQuestion);
 
                 securityQuestion.set({
-                    isDisable: true
+                    isDisabled: true
                 });
 
                 securityQuestion.save(function(err, savedSecurityQuestion){
