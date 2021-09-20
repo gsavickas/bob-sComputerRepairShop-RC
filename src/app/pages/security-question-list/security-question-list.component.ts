@@ -9,8 +9,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SecurityQuestionService } from './../../shared/security-question.service';
 import { SecurityQuestion } from './../../shared/security-question.interface';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { DeleteRecordDialogComponent } from './../../shared/delete-record-dialog/delete-record-dialog.component';
+import { HttpClient} from '@angular/common/http';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-security-question-list',
@@ -18,36 +19,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./security-question-list.component.css']
 })
 export class SecurityQuestionListComponent implements OnInit {
-  form: FormGroup;
+  
 
-  securityQuestion: SecurityQuestion[];
-  displayColumns = ['question', 'functions'];
+  securityQuestions: SecurityQuestion[];
+  displayedColumns = ['question', 'functions'];
 
   //form builder constructor
-  constructor( private fb: FormBuilder, private router: Router, private securityQuestionService: SecurityQuestionService) {
-        }
-      
-//form group with one field called text
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      text: [null, Validators.compose([Validators.required])],
-    });
-  }
+  constructor(private dialog: MatDialog, private securityQuestionService: SecurityQuestionService) {
+    this.securityQuestionService.findAllSecurityQuestions().subscribe(res => {
+      this.securityQuestions = res['data'];
+    }, err  => {
+      console.log(err);
+        });
+      }
+      ngOnInit(): void{
 
-//Create function
-create(): void {
-  const newSecurityQuestion: SecurityQuestion = {
-    text: this.form.controls.text.value
-  }
-  //calls the create question api
-  this.securityQuestionService.createSecurityQuestion(newSecurityQuestion).subscribe(res => {
-    this.router.navigate(['/security-questions']);
-  },err => {
-    console.log(err);
-  });
-}
-//redirects back to the security questions list
-cancel(): void {
-  this.router.navigate(['/security-questions']);
-}
-}
+      }
+// WHen deleting the dialog box opens to pass over the record Id the display the messages confirming 
+      delete(recordId: string): void{
+        const dialogRef = this.dialog.open(DeleteRecordDialogComponent, {
+          data: {
+            recordId,
+            dialogHeader: 'Delete Record Dialog',
+            dialogBody: `Are you sure you want to delete the selected security question?`
+          },
+          disableClose: true,
+          width: '800px'
+        });
+//After they confirmed deleting by closing this calls the securityQuestionService
+
+        dialogRef.afterClosed().subscribe(result =>{
+          if (result == 'confirm') {
+            this.securityQuestionService.deleteSecurityQuestion(recordId).subscribe(res =>{
+              console.log('Security question deleted');
+              this.securityQuestions = this.securityQuestions.filter(q => q._id !== recordId);
+            });
+          }
+        });
+      }
+    }
