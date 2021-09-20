@@ -1,15 +1,47 @@
+<!--
+ * * Title:base-layout.component.html
+ * Author: Larry Ohaka
+ * Date: 08/22/21
+ * Description: signin
+ */
+-->
+
 <div fxLayout="column">
 
   <!-- navigation -->
-  <nav fxFlex>
-    <mat-toolbar color="primary">
+  <nav fxFlex >
+    <mat-toolbar style="background-color: rgb(32, 105, 179);">
+      <div class="text-logo">
+        <!-- logo -->
+        <button class="logo" routerLink="/" mat-button> <img src="./assets/Tech Strat_graphic-06.png" style="width: 40px; padding:5px ;"/><b style="color: aliceblue;">nodebucket</b></button>
+      </div>
       <!-- navbar container -->
       <div class="navbar-container" >
-        <!-- logo -->
-        <button class="logo" routerLink="/" mat-button>BCRS</button>
+        <button class="navbar-link" routerLink="/about" mat-button style="color: antiquewhite;">About</button>
+        <button class="navbar-link" routerLink="/contact" mat-button style="color: antiquewhite;">Contact</button>
+      </div>
 
-        <button class="navbar-link" routerLink="/" mat-button>Home</button>
-        <button class="navbar-link" mat-button>About</button>
+<!-- logged out-->
+      <div fxFlex></div>
+
+
+      <div *ngIf="isLoggedIn">
+<!--Profile pic button to open menu-->
+        <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="User Profile Menu">
+          <mat-icon style="color: antiquewhite;">perm_identity</mat-icon>
+        </button>
+
+        <mat-menu #profileMenu>
+          <p style="padding: 10px;">
+            Signed in as {{ name }}
+          </p>
+          <mat-divider></mat-divider>
+<!--signOut function-->
+          <button mat-menu-item (click)='signOut()'>
+            <mat-icon>logout</mat-icon>
+            <span>Sign Out</span>
+          </button>
+        </mat-menu>
       </div>
 
     </mat-toolbar>

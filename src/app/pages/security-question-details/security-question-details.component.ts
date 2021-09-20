@@ -7,9 +7,9 @@
 
 //This is the import statements needed for this file. 
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+
 import { SecurityQuestionService } from 'src/app/shared/security-question.service';
 import { SecurityQuestion } from 'src/app/shared/security-question.interface';
 

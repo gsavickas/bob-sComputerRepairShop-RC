@@ -10,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 import { SecurityQuestionService } from './../../shared/security-question.service';
 import { SecurityQuestion } from './../../shared/security-question.interface';
 import { DeleteRecordDialogComponent } from './../../shared/delete-record-dialog/delete-record-dialog.component';
-import { HttpClient} from '@angular/common/http';
 import {MatDialog} from '@angular/material/dialog';
 
 @Component({
