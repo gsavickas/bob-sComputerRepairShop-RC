@@ -1,1 +1,34 @@
-<p>security-question-create works!</p>
+<div fxLayout="column">
+    <mat-card class="mat-elevation-z8">
+        <!--This is the title for our mat card. -->
+        <mat-card-title>Create Security Question</mat-card-title>
+
+        <br />
+
+        <!--This creates our form which calls the create function on submit. -->
+        <form [formGroup]="form" (ngSubmit)="create()" #securityQuestionForm>
+            <mat-card-content>
+                <div fxLayout="column" fxLayoutGap="10px">
+                    <mat-form-field>
+                        <!--Here we have an input field with a text placeholder. -->
+                        <input type="text" matInput [formControl]="form.controls['text']"
+                            placeholder="Question text" (keydown.enter)="create()" />
+
+                        <!--Here we have our error handling for form validation. -->
+                        <mat-error *ngIf="form.controls.text.hasError('required') && form.controls.text.touched" class="error">
+                            Security question is a required field. 
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <br />
+            <mat-card-actions align="end">
+                <!--Here we have the cancel button which calls the cancel function. -->
+                <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+                <!--Here we have the submit button which is disabled until all required fields are complete. -->
+                <button type="submit" [disabled]="!form.valid" mat-raised-button color="accent">Submit</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

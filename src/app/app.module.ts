@@ -38,6 +38,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { MatMenuModule } from '@angular/material/menu'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
@@ -72,6 +73,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatMenuModule,
     MatDialogModule,
     MatDividerModule,
+    MatTableModule,
     DragDropModule
   ],
   providers: [],

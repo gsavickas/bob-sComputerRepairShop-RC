@@ -15,10 +15,10 @@
             <mat-card-content>
                 <div fxLayout="column" fxLayoutGap="10px">
                     <mat-form-field>
-                        <input type="text" matInput [formControl]="form.controls['userName]" placeholder="Username"/>
+                        <input type="text" matInput [formControl]="form.controls['userName']" placeholder="Username"/>
 
 
-                        <mat-error class="error" *ngif="form.controls.userName.hasError('required) && form.controls.userName.touched">Username is a required field</mat-error>
+                        <mat-error class="error" *ngIf="form.controls.userName.hasError('required') && form.controls.userName.touched">Username is a required field</mat-error>
                     </mat-form-field>
 
 
@@ -41,7 +41,7 @@
 
             <mat-form-field>
                 <input type="text" matInput [formControl]="form.controls['lastName']" placeholder="Last Name"/>
-                <mat-error class="error" *ngIf="form.controls.lastNumber.hasError('required') && form.controls.lastName.touched">Last name is requires field</mat-error> 
+                <mat-error class="error" *ngIf="form.controls.lastName.hasError('required') && form.controls.lastName.touched">Last name is requires field</mat-error> 
             </mat-form-field>
 
 
@@ -73,7 +73,7 @@
 <br/>
 <mat-card-actions align="end">
     <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
-    <button mat-raised-button (disabled="cancel()" color="accent">Submit</button>
+    <button mat-raised-button [disabled]="!form.valid" color="accent">Submit</button>
 </mat-card-actions>
 </form>
 </mat-card>
@@ -87,14 +87,4 @@
 
 
 
-            </mat-form-field>
-
-
-
-
-
-                </div>
-            </mat-card-content>
-        </form>
-    </mat-card>
-</div>
+            

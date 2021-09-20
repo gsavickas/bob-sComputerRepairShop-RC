@@ -1,1 +1,33 @@
-<p>security-question-details works!</p>
+<div fxLayout="column">
+    <mat-card class="mat-elevation-z8">
+        <!--Here we have the title for our mat card. -->
+        <mat-card-title>Security Question Details</mat-card-title>
+        <br />
+        <!--Here we create out form calling the saveQuestion function on submit. -->
+        <form [formGroup]="form" (ngSubmit)="saveQuestion()" #questionForm>
+            <mat-card-content>
+                <div fxLayout="column" fxLayoutGap="10px">
+                    <mat-form-field>
+                        <!--Here we have our mat input which consist of a placeholder text. -->
+                        <input matInput [formControl]="form.controls['text']"
+                            placeholder="Security question text ..." (keydown.enter)="saveQuestion()" />
+
+                        <!--This is the error handling for our form validation. -->
+                        <mat-error class="error" *ngIf="form.controls.text.hasError('required') && form.controls.text.touched">
+                            Security question is a required field.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <br/> 
+            <mat-card-actions align="end">
+                <!--This is the cancel button that is activated on click. -->
+                <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+                <!--This is the submit button which is disabled until all required fields are complete. -->
+                <button mat-raised-button [disabled]="!form.valid" color="accent">Submit</button>
+            </mat-card-actions>
+        </form>
+
+    </mat-card>
+</div>

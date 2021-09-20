@@ -19,7 +19,7 @@ import { User } from './../../shared/user.interface';
   styleUrls: ['./user-list.component.css']
 })
 //Data table with its array of users objects
-export class UserCreateComponent implements OnInit {
+export class UserListComponent implements OnInit {
   users: User [];
   displayedColumns = ['userName', 'firstName', 'lastName', 'phoneNumber', 'address', 'email', 'functions'];
 

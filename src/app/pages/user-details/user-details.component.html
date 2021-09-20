@@ -1,1 +1,81 @@
-<p>user-details works!</p>
+<div fxLayout="column">
+    <mat-card class ="mat-elevation-z8">
+        <!--This is the mat card title. -->
+        <mat-card-title>User Details</mat-card-title>
+        <br />
+        <!--This creates our form calling the saveUser function on submit. -->
+        <form [formGroup]="form" (ngSubmit)="saveUser()" #userForm (keydown.enter)="$event.preventDefault()">
+            <mat-card-content>
+                <div fxLayout="column" fxLayoutGap="10px">
+                    <!--This creates the input field for first name.-->
+                    <mat-form-field>
+                        <input type="text" matInput [formControl]="form.controls['firstName']"
+                            placeholder="First name" />
+                        
+                        <!--This is the error handling saying this is a required field. -->
+                        <mat-error class="error" *ngIf="form.controls.firstName.hasError('required') && form.controls.firstName.touched">
+                            First name is a required field. 
+                        </mat-error>
+                    </mat-form-field>
+
+                    <!--This creates the input field for last name. -->
+                    <mat-form-field>
+                        <input type="text" matInput [formControl]="form.controls['lastName']"
+                            placeholder="Last name"/>
+
+                        <!--This is the error handling saying this is a required field. -->
+                        <mat-error class="error" *ngIf="form.controls.lastName.hasError('required') && form.controls.lastName.touched">
+                            Last name is a required field.
+                        </mat-error>
+                    </mat-form-field>
+
+                    <!--This creates the input field for phone number. -->
+                    <mat-form-field>
+                        <input type="text" matInput [formControl]="form.controls['phoneNumber']"
+                            placeholder="Phone number"/>
+
+                        <!--This is the error handling saying this is a required field. -->
+                        <mat-error class="error" *ngIf="form.controls.phoneNumber.hasError('required') && form.controls.phoneNumber.touched">
+                            Phone number is a required field. 
+                        </mat-error>
+                    </mat-form-field>
+
+                    <!--This creates the input field for address. -->
+                    <mat-form-field>
+                        <input type="text" matInput [formControl]="form.controls['address']"
+                            placeholder="Address"/>
+
+                        <!--This is the error handling saying this is a required field. -->
+                        <mat-error class="error" *ngIf="form.controls.address.hasError('required') && form.controls.address.touched">
+                            Address is a required field. 
+                        </mat-error>
+                    </mat-form-field>
+
+                    <!--This creates the input field for email. -->
+                    <mat-form-field>
+                        <input type="text" matInput [formControl]="form.controls['email']" placeholder="Email"/>
+
+                        <!--This is the error handling saying this is a required field. -->
+                        <mat-error class="error" *ngIf="form.controls.email.hasError('required') && form.controls.email.touched">
+                            Email is a required field. 
+                        </mat-error>
+
+                        <!--This is the error handling saying there is a required format. . -->
+                        <mat-error class="error" *ngIf="form.controls.email.hasError('email') && form.controls.email.touched">
+                            Invalid email format. 
+                        </mat-error>
+
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <br />
+            <mat-card-actions align="end">
+                <!--This is our button that calls the cancel function.-->
+                <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+                <!--This is out button that is disabled if the form is not valid. -->
+                <button mat-raised-button [disabled]="!form.valid" color="accent">Submit</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>
