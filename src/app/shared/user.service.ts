@@ -33,7 +33,7 @@ export class UserService {
 
   //Here we have the create User function which creates a user with the required fields. 
   createUser(user: User): Observable<any> {
-    return this.http.post('/api/users', {
+    return this.http.post('/api/users/', {
       userName: user.userName,
       password: user.password,
       firstName: user.firstName,
