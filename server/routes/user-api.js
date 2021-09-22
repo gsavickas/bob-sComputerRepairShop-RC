@@ -86,14 +86,8 @@ router.get('/:id', async(req, res) =>{
 router.post('/', async(req, res) => {
   try {
 
-    //This sets up the hashed password using the bcrypt and sets the default role to standard. 
-    let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
-    standardRole = {
-      role: 'standard'
-    }
-
-    //This creates our user object with the required fields. 
-    let newUser = {
+     //This creates our user object with the required fields. 
+     let newUser = {
       userName: req.body.userName,
       password: hashedPassword,
       firstName: req.body.firstName,
@@ -104,30 +98,49 @@ router.post('/', async(req, res) => {
       role: standardRole
     };
 
-    //This is our user create function. 
-    User.create(newUser, function(err, user) {
+          //This sets up the hashed password using the bcrypt and sets the default role to standard. 
+          let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+          standardRole = {
+            role: 'standard'
+          }
 
-      //This returns the error message if there is an error with our Mongo db.
+    User.findOne({'username': req.body.userName}, (err, user) => {
       if (err) {
         console.log(err);
-        const createUserMongodbErrorResponse = new ErrorResponse(500, 'Internal server error', err);
-        res.status(500).send(createUserMongodbErrorResponse.toObject());
-      } 
+        const createUserMongoDbErrorResponse = new ErrorResponse (500, 'MongoDB server error', err);
+        res.status(501).send(createUserMongoDbErrorResponse.toObject());
+      }else {
+        if (user) {
+          const createUserExistsErrorResponse = new ErrorResponse (400, "User exists");
+          res.status(400).send(createUserExistsErrorResponse.toObject());  
+        }else{
+            //This is our user create function. 
+          User.create(newUser, function(err, user){
+            //This returns the error message if there is an error with our Mongo db.
+            if (err){
+              console.log(err);
+              const createUserMongoDbErrorResponse = new ErrorResponse(500, "internal error", err);
+              res.status(500).send(createUserMongoDbErrorResponse.toObject());
+            }else {
+              console.log(user);
+              const createUserResponse = new BaseResponse(200, 'Query successful', user);
+              res.json(createUserResponse.toObject());
+            }
+          })
+        }
+        }
+      });
+      
+          //This creates the error message for if there was an server error. 
+        } catch (e) {
+          const createUserCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);
+          res.status(500).send(createUserCatchErrorResponse.toObject());
+        }
+        
+ });
 
-      //This returns the user showing that the query was successful. 
-      else {
-        console.log(user);
-        const createUserResponse = new BaseResponse(200, 'Query successful', user);
-        res.json(createUserResponse.toObject());
-      }
-    })
+    
 
-    //This creates the error message for if there was an server error. 
-  } catch (e) {
-    const createUserCatchErrorResponse = new ErrorResponse(500, 'Internal server error', e.message);
-    res.status(500).send(createUserCatchErrorResponse.toObject());
-  }
-});
 
 
 //-------------------------------UpdateUser api modified by Jimmy-------------------------------//
