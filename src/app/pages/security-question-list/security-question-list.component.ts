@@ -21,7 +21,7 @@ export class SecurityQuestionListComponent implements OnInit {
   
 
   securityQuestions: SecurityQuestion[];
-  displayedColumns = ['question', 'functions'];
+  displayedColumns: ['question', 'functions'];
 
   //form builder constructor
   constructor(private dialog: MatDialog, private securityQuestionService: SecurityQuestionService) {
