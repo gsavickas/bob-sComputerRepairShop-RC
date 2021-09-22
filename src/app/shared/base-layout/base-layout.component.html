@@ -37,6 +37,14 @@
           </p>
           <mat-divider></mat-divider>
 <!--signOut function-->
+          <button mat-menu-item routerLink="/users">
+            <mat-icon>group</mat-icon>
+            <span>User Configuration</span>
+          </button>
+          <button mat-menu-item routerLink="/security-questions">
+            <mat-icon>question_answer</mat-icon>
+            <span>Question Configuration</span>
+          </button>
           <button mat-menu-item (click)='signOut()'>
             <mat-icon>logout</mat-icon>
             <span>Sign Out</span>
