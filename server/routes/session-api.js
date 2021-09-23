@@ -14,7 +14,7 @@ const bcrypt = require('bcrypt')
 
 // configuration for route
 const router = express.Router();
-
+const saltRounds = 10;
 /**
  * User sign-in
  */
@@ -76,5 +76,69 @@ router.post('/signin', async(req, res) => {
         res.status(500).send(signinCatchErrorResponse.toObject());
     }
 });
+
+//User Register
+router.post('/register', async (req, res) => {
+try {
+    User.findOne({'username': reg.body.userName}, (err, user) => {
+        if(err) {
+            console.log(err);
+            const registerUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+            res.status(500).send(registerUserMongodbErrorResponse.toObject());
+        }
+        else
+        {
+            if (!user)
+            {
+                let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+                standardRole = {
+                    role: "standard"
+                }
+
+                let registeredUser = {
+                    userName: req.body.userName,
+                    password: hashedPassword,
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    phoneNumber: req.body.phoneNumber,
+                    address: req.body.address,
+                    email: req.body.email,
+                    role: standardRole,
+                    selectedSecurityQuestions: req.body.selectedSecurityQuestions
+                };
+
+                User.create(registeredUser, function(err, newUser)
+                {
+                    if (err)
+                    {
+                        console.log(err);
+                        const newUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+                        res.status(500).send(newUserMongodbErrorResponse.toObject());
+                    }
+                    else
+                    {
+                        console.log(newUser);
+                        const registeredUserResponse = new BaseResponse('200', 'Query successful', newUser);
+                        res.json(registeredUserResponse.toObject());
+                    }
+                })
+            }
+            else
+            {
+            console.log(`Username ${req.body.userName} already exists.`);
+            const userInUseError = new BaseResponse('400', `The username '${req.body.userName}' is already in use.`,null);
+            res.status(400).send(userInUseError.toObject());
+            }
+        }
+    })
+} catch (e)
+{
+    console.log(e);
+    const registerUserCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e.message);
+    res.status(500).send(registerUserCatchErrorResponse.toObject());
+}
+});
+
+
 
 module.exports = router;

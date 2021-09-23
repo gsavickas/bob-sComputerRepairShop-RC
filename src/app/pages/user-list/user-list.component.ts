@@ -21,7 +21,7 @@ import { User } from './../../shared/user.interface';
 //Data table with its array of users objects
 export class UserListComponent implements OnInit {
   users: User [];
-  displayedColumns: ['userName', 'firstName', 'lastName', 'phoneNumber', 'address', 'email', 'functions'];
+  displayedColumns= ['userName', 'firstName', 'lastName', 'phoneNumber', 'address', 'email', 'functions'];
 
   //Calls the findAllUsers api and fills the user field with the users object
   constructor(private dialog: MatDialog, private userService: UserService) {

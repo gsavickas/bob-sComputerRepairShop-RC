@@ -21,7 +21,7 @@ export class SecurityQuestionListComponent implements OnInit {
   
 
   securityQuestions: SecurityQuestion[];
-  displayedColumns: ['question', 'functions'];
+  displayedColumns= ['question', 'functions'];
 
   //form builder constructor
   constructor(private dialog: MatDialog, private securityQuestionService: SecurityQuestionService) {
@@ -48,7 +48,7 @@ export class SecurityQuestionListComponent implements OnInit {
 //After they confirmed deleting by closing this calls the securityQuestionService
 
         dialogRef.afterClosed().subscribe(result =>{
-          if (result == 'confirm') {
+          if (result === 'confirm') {
             this.securityQuestionService.deleteSecurityQuestion(recordId).subscribe(res =>{
               console.log('Security question deleted');
               this.securityQuestions = this.securityQuestions.filter(q => q._id !== recordId);
