@@ -18,16 +18,16 @@
         <br/>
         <mat-card-content *ngIf="securityQuestions">
             <table mat-table [dataSource]="securityQuestions">
-                <ng-container natColumDef="securityQuestions">
+                <ng-container *matColumnDef="securityQuestions">
                     <th mat-header-cell *matHeaderCellDef>Question</th>
-                    <td mat-cell *matCellDef="let elements">
+                    <td mat-cell *matCellDef="let element">
                         {{element.text}}
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="functions">
                     <th mat-header-cell *matHeaderCellDef>Functions</th>
-                    <td mat-cell  *matCellDef="let elements">
+                    <td mat-cell  *matCellDef="let element">
                         <button mat-icon-button routerLink="/security-questions/{{element._id}}">
                         <mat-icon color="accent">edit</mat-icon>
                     </button>
