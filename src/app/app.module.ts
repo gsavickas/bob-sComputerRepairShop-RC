@@ -40,6 +40,9 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
+import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { VerifySecurityQuestionFormComponent } from './shared/forms/verify-security-question-form/verify-security-question-form.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     UserListComponent,
     SigninComponent,
     DeleteRecordDialogComponent,
+    ResetPasswordFormComponent,
+    VerifyUsernameFormComponent,
+    VerifySecurityQuestionFormComponent,
   ],
   imports: [
     BrowserModule,
