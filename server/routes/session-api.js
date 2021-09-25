@@ -1,7 +1,7 @@
 /**
  * * Title: session-api.js
- * Author: Grayton Savickas
- * Date: 09/19/21
+ * Author: Grayton Savickas, James Pinson
+ * Date: 09/25/21
  * Description: session API
  */
 
@@ -77,11 +77,15 @@ router.post('/signin', async(req, res) => {
     }
 });
 
-//User Register
+//This is the register user api. 
+
+//Here we do a post request to /register.
 router.post('/register', async (req, res) => {
 try {
+    //We first use the findOne function to find the user by Username. 
     User.findOne({'userName': reg.body.userName}, function(err, user)  
     {
+        //Here we log the error if there is a mongoDB error.
         if (err) {
             console.log(err);
             const registerUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
@@ -89,13 +93,16 @@ try {
         }
         else
         {
+            //This checks for a user and begins the registration process. 
             if (!user)
             {
+                //Here we hash the password and set the role to standard. 
                 let hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
                 standardRole = {
                     role: "standard"
                 }
 
+                //Here we set up the required fields for the registered user. 
                 let registeredUser = {
                     userName: req.body.userName,
                     password: hashedPassword,
@@ -108,14 +115,17 @@ try {
                     selectedSecurityQuestions: req.body.selectedSecurityQuestions
                 };
 
+                //We call the user create function.
                 User.create(registeredUser, function(err, newUser)
                 {
+                    //If there is a mongoDB server error we log it here. 
                     if (err)
                     {
                         console.log(err);
                         const newUserMongodbErrorResponse = new ErrorResponse('500', 'Internal 2 server error', err);
                         res.status(500).send(newUserMongodbErrorResponse.toObject());
                     }
+                    //Here we return the new user if successful. 
                     else
                     {
                         console.log(newUser);
@@ -124,6 +134,7 @@ try {
                     }
                 })
             }
+            //If the userName already exist we return this error message. 
             else
             {
             console.log(`Username ${req.body.userName} already exists.`);
@@ -132,6 +143,7 @@ try {
             }
         }
     })
+    //Here we return the error message if there is a server error. 
 } catch (e)
 {
     console.log(e);
@@ -140,6 +152,39 @@ try {
 }
 });
 
+//This is the api for findSelectedSecurityQuestions
+
+//Here we do a get request using the username/security-questions.
+router.get('/:userName/security-questions', async (req, res) => {
+    try
+    {
+        //Here we call the findOne function based on the userName to return a user. 
+        User.findOne({'userName': req.params.userName}, function(err,user)
+        {
+            //Here we log the error if there is Mongodb server error. 
+            if (err)
+            {
+                console.log(err);
+                const findSelectedSecurityQuestionsMongodbErrorResponse = new ErrorResponse('500', "Internal server error", err);
+                res.status(500).send(findSelectedSecurityQuestionsMongodbErrorResponse.toObject());
+            }
+            //Here we return the users selected security questions.
+            else
+            {
+                console.log(user);
+                const findSelectedSecurityQuestionsResponse = new BaseResponse('200', 'Query successful', user.selectedSecurityQuestions);
+                res.json(findSelectedSecurityQuestionsResponse.toObject());
+            }
+        })
+    }
+    //Here we log the response if there is a server error. 
+    catch (e)
+    {
+        console.log(e);
+        const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e);
+        res.status(500).send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
+    }
+});
 
 
 module.exports = router;

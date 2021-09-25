@@ -1,8 +1,8 @@
 /*
 ============================================
 ; Title:  Bob's Computer Repair Shop
-; Author: Grayton Savickas
-; Date:   18 Sep 2021
+; Author: Grayton Savickas, James Pinson
+; Date:   25 Sep 2021
 ; Description: App module
 ;===========================================
 */
@@ -24,6 +24,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 import { VerifySecurityQuestionFormComponent } from './shared/forms/verify-security-question-form/verify-security-question-form.component';
 import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -84,9 +85,17 @@ const routes: Routes = [
       {
         path: 'reset-password',
         component: ResetPasswordFormComponent
+      },
+      {
+        path: '404',
+        component: NotFoundComponent
       }
 
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'session/404'
   }
 ];
 
