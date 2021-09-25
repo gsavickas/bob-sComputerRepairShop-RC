@@ -42,7 +42,7 @@
                         <mat-label>{{question1}} <span class="required">*</span></mat-label>
                         <input matInput [formControl]="form.controls['answerToSecurityQuestion1']"/>
 
-                        <mat-error class="error" *ngif="form.controls[answerToSecurityQuestion1'].hasError('required') && form.controls['answerToSecurityQuestion1'].touched">
+                        <mat-error class="error" *ngif="form.controls['answerToSecurityQuestion1'].hasError('required') && form.controls['answerToSecurityQuestion1'].touched">
                             Required
                         </mat-error>
                     </mat-form-field>
@@ -53,7 +53,7 @@
                         <mat-label>{{question2}} <span class="required">*</span></mat-label>
                         <input matInput [formControl]="form.controls['answerToSecurityQuestion2']"/>
 
-                        <mat-error class="error" *ngif="form.controls[answerToSecurityQuestion2'].hasError('required') && form.controls['answerToSecurityQuestion2'].touched">
+                        <mat-error class="error" *ngIf="form.controls['answerToSecurityQuestion2'].hasError('required') && form.controls['answerToSecurityQuestion2'].touched">
                             Required
                         </mat-error>
                     </mat-form-field>
@@ -65,7 +65,7 @@
                         <mat-label>{{question3}} <span class="required">*</span></mat-label>
                         <input matInput [formControl]="form.controls['answerToSecurityQuestion3']"/>
 
-                        <mat-error class="error" *ngif="form.controls[answerToSecurityQuestion3'].hasError('required') && form.controls['answerToSecurityQuestion3'].touched">
+                        <mat-error class="error" *ngIf="form.controls['answerToSecurityQuestion3'].hasError('required') && form.controls['answerToSecurityQuestion3'].touched">
                             Required
                         </mat-error>
                     </mat-form-field>

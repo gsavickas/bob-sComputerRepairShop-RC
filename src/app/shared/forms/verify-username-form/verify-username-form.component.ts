@@ -38,7 +38,7 @@ export class VerifyUsernameFormComponent implements OnInit {
       //redirects to the next route
       this.router.navigate(['/session/verify-security-questions'], {queryParams: {username: username}, skipLocationChange: true});//skipLocationCHange doesn't change the url. Also allows you to send data to  a new component 
     }, err =>{
-      this.errorMessages = [
+      this.errorMessage = [
         {severity: 'error', summary: 'Error', detail: err['message']}
       ]
     console.log(err);
