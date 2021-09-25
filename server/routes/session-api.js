@@ -80,8 +80,9 @@ router.post('/signin', async(req, res) => {
 //User Register
 router.post('/register', async (req, res) => {
 try {
-    User.findOne({'username': reg.body.userName}, (err, user) => {
-        if(err) {
+    User.findOne({'userName': reg.body.userName}, function(err, user)  
+    {
+        if (err) {
             console.log(err);
             const registerUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
             res.status(500).send(registerUserMongodbErrorResponse.toObject());
@@ -112,7 +113,7 @@ try {
                     if (err)
                     {
                         console.log(err);
-                        const newUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+                        const newUserMongodbErrorResponse = new ErrorResponse('500', 'Internal 2 server error', err);
                         res.status(500).send(newUserMongodbErrorResponse.toObject());
                     }
                     else

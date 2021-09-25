@@ -20,7 +20,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
 import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
@@ -40,9 +40,19 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+<<<<<<< Updated upstream
 import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
 import { VerifySecurityQuestionFormComponent } from './shared/forms/verify-security-question-form/verify-security-question-form.component';
+=======
+import { RegisterComponent } from './pages/register/register.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { MatStepperModule } from '@angular/material/stepper';
+import { ErrorInterceptor } from './shared/error.interceptor';
+import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -58,9 +68,13 @@ import { VerifySecurityQuestionFormComponent } from './shared/forms/verify-secur
     UserListComponent,
     SigninComponent,
     DeleteRecordDialogComponent,
+<<<<<<< Updated upstream
     ResetPasswordFormComponent,
     VerifyUsernameFormComponent,
     VerifySecurityQuestionFormComponent,
+=======
+    RegisterComponent,
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -80,9 +94,19 @@ import { VerifySecurityQuestionFormComponent } from './shared/forms/verify-secur
     MatDialogModule,
     MatDividerModule,
     MatTableModule,
-    DragDropModule
+    DragDropModule,
+    MessageModule,
+    MessagesModule,
+    MatStepperModule,
+    MatListModule,
+    MatSelectModule
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

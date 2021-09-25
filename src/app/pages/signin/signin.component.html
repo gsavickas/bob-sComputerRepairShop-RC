@@ -28,8 +28,7 @@
     <div fxFlex.gt-sm="55" fxFlex="100">
         <mat-card class="mat-card-top pa-0">
             <mat-card-title style="text-align: center; font-size: 48px; font-weight: lighter;" class="mat-headline">Employee Sign in</mat-card-title>
-            <br/><mat-card-subtitle style='text-align: center; font-weight: lighter;'><a routerLink="/" class="register-link">or create an account</a>
-            </mat-card-subtitle>
+           
 
             <br/>
         <mat-card-subtitle style="text-align: center;" class="mat-headline">You must enter a valid username/password to proceed</mat-card-subtitle>
@@ -60,8 +59,20 @@
                         <button type="submit" [disabled]="!form.valid" fxFlex mat-raised-button color="accent">Submit</button>
                     </mat-card-actions>
                     <br/>
-                    <!--Forgot password link-->
-                    <a fxLayoutAlign="end" class="forgot-password-link" routerLink="/">Forgot password?</a>
+                    
+                    <div fxLayout="row">
+                        <div class="signin-footer-container">
+                            <div fxFlex class="center=text">
+                                <a class="signin-footer-link" routerLink="/session/register">Create new account</a>
+                            </div>
+
+                            <div fxFLex class="center-text">
+                                <a class="signin-footer-link" routerLink="/session/forgot">Forgot password?</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+
                 </form>
             </mat-card>
         </mat-card-content>

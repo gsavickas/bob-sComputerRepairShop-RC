@@ -20,6 +20,7 @@ import { SecurityQuestionCreateComponent } from './pages/security-question-creat
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SigninComponent} from './pages/signin/signin.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
       {
         path: 'signin',
         component: SigninComponent
+      },
+      {
+        path: "register",
+        component: RegisterComponent
       }
 
     ]
