@@ -25,7 +25,7 @@
             <br />
             <mat-card-actions align="end">
                 <!--Here we have the cancel button which calls the cancel function. -->
-                <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+                <button mat-raised-button (click)="cancel()" color="primary">Cancel</button>
                 <!--Here we have the submit button which is disabled until all required fields are complete. -->
                 <button type="submit" [disabled]="!form.valid" mat-raised-button color="accent">Submit</button>
             </mat-card-actions>

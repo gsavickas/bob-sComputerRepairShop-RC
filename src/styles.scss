@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+.logo-container {
+  padding-left: 10px;
+}
+
+.error {
+  color: red;
+}
+
+.required {
+  color: red;
+}
+
+.card-title {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.mat-card {
+  background-color: #eeeeee;
+  margin: 15px;
+}
+
+.mat-table {
+  background-color: #eeeeee;
+  padding: 10px;
+  width: 100%;
+}
+
+.card-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.layout-header-container {
+  width: 90%;
+}
+
+.layout-header-text {
+  text-align: center;
+  padding-left: 10%;
+  padding-top: 5%;
+  font-weight: lighter;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.signin-footer-container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.signin-footer-link {
+  text-decoration: none;
+  color: black;
+}
+
+.signin-footer-link:hover {
+  color: brown;
+}
+
+.register-footer-link {
+  text-decoration: none;
+  color: black;
+}
+
+.register-footer-link:hover {
+  color: brown;
+}
+
+.register-footer-text {
+  color: black;
+}
+
+.register-credentials-container {
+  width: 50%;
+  margin: 0 auto;
+}
