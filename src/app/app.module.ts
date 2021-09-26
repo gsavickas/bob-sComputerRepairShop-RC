@@ -50,6 +50,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { ErrorInterceptor } from './shared/error.interceptor';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { MatSelectModule } from '@angular/material/select';
     VerifyUsernameFormComponent,
     VerifySecurityQuestionFormComponent,
     RegisterComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

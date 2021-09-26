@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async(req, res) =>{
   try{
       //calls the findOne function
-      Employee.findOne({'_id': req.params.id}, function(err, employee) {
+      User.findOne({'_id': req.params.id}, function(err, user) {
           //if there is an error will return error response
           if (err){
               console.log(err);
@@ -63,8 +63,8 @@ router.get('/:id', async(req, res) =>{
           }
           //if there isnt an error it will return security  question selected
           else{
-              console.log(employee);
-              const findByIdResponse = new BaseResponse(200, 'Query successful', employee);
+              console.log(user);
+              const findByIdResponse = new BaseResponse(200, 'Query successful', user);
               res.json(findByIdResponse.toObject());
           }
 
