@@ -3,3 +3,12 @@
     padding-left: 10%;
     font-weight: lighter;
 }
+
+
+.mat-card-top{
+    position:absolute;
+    padding-top: 10px;
+    float: right;
+    width: 50%;
+    height: 100%;
+}

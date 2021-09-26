@@ -9,25 +9,25 @@
 
 
 
-<mat-toolbar color='primary'>
+<mat-toolbar color='primary' style="float: left; width: 50%;height: 100%;">
     <mat-toolbar-row></mat-toolbar-row>
     <mat-toolbar-row></mat-toolbar-row>
     <mat-toolbar-row>
-        <div style="width: 90%">
-            <p style="text-align: center; padding-left: 10%; font-weight: lighter">
-                Bob's Computer Repair Shop<br/>
-            </p>
+        <div style="width: 100%">
+           
+            <h1 style="text-align: center; padding-left: 10%; font-weight: lighter">
+                <img src="./assets/BCRS_logo-05.png" style="width: 180px; padding:5px ; position:center;"/><br/>
+                <b>BOB'S COMPUTER REPAIR SHOP</b><br/>
+            </h1>
         </div>
     </mat-toolbar-row>
-    <mat-toolbar-row></mat-toolbar-row>
-    <mat-toolbar-row></mat-toolbar-row>
-    <mat-toolbar-row></mat-toolbar-row>
+    
 </mat-toolbar>
 
-<div fxLayout="row wrap" fxLayoutAlign="center start">
+<div fxLayout="row wrap" >
     <div fxFlex.gt-sm="55" fxFlex="100">
-        <mat-card class="mat-card-top pa-0">
-            <mat-card-title style="text-align: center; font-size: 48px; font-weight: lighter;" class="mat-headline">Employee Sign in</mat-card-title>
+        <mat-card class="mat-card-top">
+            <mat-card-title style="text-align: center; font-size: 48px; font-weight: lighter;" class="mat-headline">User Sign in</mat-card-title>
            
 
             <br/>
@@ -60,19 +60,18 @@
                     </mat-card-actions>
                     <br/>
                     
-                    <div fxLayout="row">
+                   
                         <div class="signin-footer-container">
                             <div fxFlex class="center=text">
                                 <a class="signin-footer-link" routerLink="/session/register">Create new account</a>
                             </div>
+<br />
 
                             <div fxFLex class="center-text">
                                 <a class="signin-footer-link" routerLink="/session/forgot">Forgot password?</a>
                             </div>
                         </div>
                         
-                    </div>
-
                 </form>
             </mat-card>
         </mat-card-content>
