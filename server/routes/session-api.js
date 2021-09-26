@@ -83,7 +83,7 @@ router.post('/signin', async(req, res) => {
 router.post('/register', async (req, res) => {
 try {
     //We first use the findOne function to find the user by Username. 
-    User.findOne({'userName': reg.body.userName}, function(err, user)  
+    User.findOne({'userName': req.body.userName}, function(err, user)  
     {
         //Here we log the error if there is a mongoDB error.
         if (err) {
@@ -152,39 +152,7 @@ try {
 }
 });
 
-//This is the api for findSelectedSecurityQuestions
 
-//Here we do a get request using the username/security-questions.
-router.get('/:userName/security-questions', async (req, res) => {
-    try
-    {
-        //Here we call the findOne function based on the userName to return a user. 
-        User.findOne({'userName': req.params.userName}, function(err,user)
-        {
-            //Here we log the error if there is Mongodb server error. 
-            if (err)
-            {
-                console.log(err);
-                const findSelectedSecurityQuestionsMongodbErrorResponse = new ErrorResponse('500', "Internal server error", err);
-                res.status(500).send(findSelectedSecurityQuestionsMongodbErrorResponse.toObject());
-            }
-            //Here we return the users selected security questions.
-            else
-            {
-                console.log(user);
-                const findSelectedSecurityQuestionsResponse = new BaseResponse('200', 'Query successful', user.selectedSecurityQuestions);
-                res.json(findSelectedSecurityQuestionsResponse.toObject());
-            }
-        })
-    }
-    //Here we log the response if there is a server error. 
-    catch (e)
-    {
-        console.log(e);
-        const findSelectedSecurityQuestionsCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e);
-        res.status(500).send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
-    }
-});
 
 //-------------------------------deleteUser api modified by Grayton-------------------------------//
 /**
