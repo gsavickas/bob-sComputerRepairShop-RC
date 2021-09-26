@@ -21,9 +21,9 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { SigninComponent} from './pages/signin/signin.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
-import { VerifySecurityQuestionFormComponent } from './shared/forms/verify-security-question-form/verify-security-question-form.component';
-import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
+import { VerifyUsernameFormComponent } from '../app/shared/forms/verify-username-form/verify-username-form.component';
+import { VerifySecurityQuestionFormComponent } from '../app/shared/forms/verify-security-question-form/verify-security-question-form.component';
+import { ResetPasswordFormComponent } from '../app/shared/forms/reset-password-form/reset-password-form.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
@@ -93,10 +93,10 @@ const routes: Routes = [
 
     ]
   },
-  // {
-  //   path: '**',
-  //   redirectTo: 'session/404'
-  // }
+  {
+    path: '**',
+    redirectTo: 'session/404'
+  }
 ];
 
 @NgModule({
