@@ -40,9 +40,9 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ResetPasswordFormComponent } from './forms/reset-password-form/reset-password-form.component';
-import { VerifyUsernameFormComponent } from './forms/verify-username-form/verify-username-form.component';
-import { VerifySecurityQuestionFormComponent } from './forms/verify-security-question-form/verify-security-question-form.component';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
+import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { VerifySecurityQuestionFormComponent } from './shared/forms/verify-security-question-form/verify-security-question-form.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';

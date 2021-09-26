@@ -21,9 +21,9 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { SigninComponent} from './pages/signin/signin.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { VerifyUsernameFormComponent } from './forms/verify-username-form/verify-username-form.component';
-import { VerifySecurityQuestionFormComponent } from './forms/verify-security-question-form/verify-security-question-form.component';
-import { ResetPasswordFormComponent } from './forms/reset-password-form/reset-password-form.component';
+import { VerifyUsernameFormComponent } from './shared/forms/verify-username-form/verify-username-form.component';
+import { VerifySecurityQuestionFormComponent } from './shared/forms/verify-security-question-form/verify-security-question-form.component';
+import { ResetPasswordFormComponent } from './shared/forms/reset-password-form/reset-password-form.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
