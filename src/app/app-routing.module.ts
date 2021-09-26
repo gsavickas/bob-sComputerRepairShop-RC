@@ -93,10 +93,10 @@ const routes: Routes = [
 
     ]
   },
-  {
-    path: '**',
-    redirectTo: 'session/404'
-  }
+  // {
+  //   path: '**',
+  //   redirectTo: 'session/404'
+  // }
 ];
 
 @NgModule({

@@ -186,5 +186,43 @@ router.get('/:userName/security-questions', async (req, res) => {
     }
 });
 
+/**
+ * VerifyUser
+ */
+router.get('/verify/users/:userName', async (req, res) => {
+    try
+    {
+        // Compares userName value in provided user object
+        User.findOne({'userName': req.params.userName}, function(err, user){
+            if (user){
+                if (err)
+                {
+                    //If there is an error with the provided user
+                    console.log(err)
+                    const verifyUserMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+                    res.status(500).send(verifyUserMongodbErrorResponse.toObject());
+                }
+                else
+                {
+                    //If the userName does exist
+                    console.log(user);
+                    const verifyUserResponse = new BaseResponse('200', 'Query successful', user);
+                    res.json(verifyUserResponse.toObject());
+                }
+                // If the userName does not exist
+            } else{
+                const invalidUsernameResponse = new BaseResponse('400', 'Invalid username', req.params.userName);
+                res.status(400).send(invalidUsernameResponse.toObject());
+            }
+        })
+    }
+    catch (e)
+    {
+        // Catch any error from the server
+        console.log(e);
+        const verifyUserCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e.message);
+        res.status(500).send(verifyUserCatchErrorResponse.toObject())
+    }
+})
 
 module.exports = router;
