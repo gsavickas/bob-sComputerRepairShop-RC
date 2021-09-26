@@ -201,7 +201,7 @@ router.delete('/:id', async (req, res) => {
                     if (err)
                     {
                         console.log(err);
-                        const savedSecurityQuestionMongodbErrorResponse = new BaseResponse(500, 'INternal server error', err);
+                        const savedSecurityQuestionMongodbErrorResponse = new BaseResponse(500, 'Internal server error', err);
                         res.status(500).send(savedSecurityQuestionMongodbErrorResponse.toObject());
                     }
                     else
