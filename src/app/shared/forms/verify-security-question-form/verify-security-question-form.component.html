@@ -41,7 +41,7 @@
                         <mat-label>{{question1}} <span class="required">*</span></mat-label>
                         <input matInput [formControl]="form.controls['answerToSecurityQuestion1']"/>
 
-                        <mat-error class="error" *ngif="form.controls['answerToSecurityQuestion1'].hasError('required') && form.controls['answerToSecurityQuestion1'].touched">
+                        <mat-error class="error" *ngIf="form.controls['answerToSecurityQuestion1'].hasError('required') && form.controls['answerToSecurityQuestion1'].touched">
                             Required
                         </mat-error>
                     </mat-form-field>
@@ -72,7 +72,7 @@
 <br/><br/>
 <div fxFlex fxLayoutAlign="end" class="p5">
     <!--Cancel button-->
-    <button mat-raised-button routerLink="/session/signin" color="accent">Cancel</button> &nbsp; &nbsp;
+    <button mat-raised-button routerLink="/session/signin" color="accent">Cancel</button> &nbsp;&nbsp;
     <!--Verify Security Questions button-->
     <button mat-raised-button [disabled]="!form.valid" color="accent">Verify Security Questions</button>
 </div>

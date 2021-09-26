@@ -20,16 +20,16 @@
  let userSchema = new Schema({
  userName:                       {type: String, require: true, unique: true},
  password:                       {type: String, require: true},
- firstName:                       {type: String},
+ firstName:                      {type: String},
  lastName:                       {type: String},
- phoneNumber:                       {type: String},
- address:                       {type: String},
- email:                       {type: String},
- isDisabled:                       {type: Boolean, default: false},
- role:                       UserRoleSchema,
- SelectedSecurityQuestionSchema:                       [SelectedSecurityQuestionSchema],
- dateCreated:                       {type: Date, default: new Date()},
- dateModified:                       {type: Date},
+ phoneNumber:                    {type: String},
+ address:                        {type: String},
+ email:                          {type: String},
+ isDisabled:                     {type: Boolean, default: false},
+ role:                           UserRoleSchema,
+ selectedSecurityQuestions:      [SelectedSecurityQuestionSchema],
+ dateCreated:                    {type: Date, default: new Date()},
+ dateModified:                   {type: Date},
  }, {collection: 'users'});
  
  module.exports = mongoose.model('User', userSchema);
