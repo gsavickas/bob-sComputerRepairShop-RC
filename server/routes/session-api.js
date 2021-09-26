@@ -186,6 +186,7 @@ router.get('/:userName/security-questions', async (req, res) => {
     }
 });
 
+//-------------------------------deleteUser api modified by Grayton-------------------------------//
 /**
  * VerifyUser
  */
