@@ -15,6 +15,50 @@ const bcrypt = require('bcrypt')
 // configuration for route
 const router = express.Router();
 const saltRounds = 10;
+
+
+//-------------------------------VerifySecurityQuestions api modified by Larry-------------------------------//
+     /**
+      *
+      * VerifySecurityQuestions
+      */
+      router.post('/verify/users/:userName/security-questions', async(req, res) =>{
+        try{
+            User.findOne({'userName': req.params.userName}, function(err, user){
+                if (err){
+                    console.log(err)
+                    const verifySecurityQuestionsMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+                    res.status(500).send(verifySecurityQuestionsMongodbErrorResponse.toObject());
+                }
+                else{
+                    console.log(err);
+                    const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(q => q.questionText ===req.body.questionText1);
+                    const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(q2 => q.questionText ===req.body.questionText2);
+                    const selectedSecurityQuestionThree = user.selectedSecurityQuestions.find(q3 => q.questionText ===req.body.questionText3);
+                    const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
+                    const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;
+                    const isValidAnswerThree = selectedSecurityQuestionThree.answerText === req.body.answerText3;
+                    if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree){
+                        console.log(`User ${user.userName} answer their security questions correctly`);
+                        res.json(validSecurityQuestionsResponse.toObject());
+                    }
+                    else{
+                        console.log(`User ${user.userName} did not answer their security questions correctly`);
+                        const invalidSecurityQuestionsResponse = new BaseResponse('200', 'error', user);
+                        res.json(invalidSecurityQuestionsResponse.toObject());
+                    }
+                }
+            })
+        }
+        catch (e){
+            console.log(e);
+            const verifySecurityQuestionCatchErrorResponse = new ErrorResponse('500', "internal server error", e.message);
+            res.status(500).send(verifySecurityQuestionCatchErrorResponse.toObject());
+        }
+     })
+
+
+
 /**
  * User sign-in
  */
