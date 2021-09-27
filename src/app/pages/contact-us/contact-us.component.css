@@ -11,3 +11,8 @@ a, input {
     text-decoration: none;
     outline: none; 
 }
+
+img{
+  width: 100%;
+  border: 10px solid #E1C16E;
+}

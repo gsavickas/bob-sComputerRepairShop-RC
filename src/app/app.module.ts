@@ -32,6 +32,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
 import { MatCardModule } from '@angular/material/card';
 
+
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CookieService } from 'ngx-cookie-service';
@@ -53,6 +54,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { ContactUsComponent  } from './pages/contact-us/contact-us.component'
 
 @NgModule({
   declarations: [
@@ -75,6 +77,7 @@ import { ErrorComponent } from './pages/error/error.component';
     NotFoundComponent,
     AboutUsComponent,
     ErrorComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
