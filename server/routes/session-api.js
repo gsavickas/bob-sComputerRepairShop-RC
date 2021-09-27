@@ -41,7 +41,7 @@ const saltRounds = 10;
 
                     if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree){
                         console.log(`User ${user.userName} answer their security questions correctly`);
-                        const validSecurityQuestionsResponse = new BaseResponse('200', 'error', user);
+                        const validSecurityQuestionsResponse = new BaseResponse('200', 'success', user);
                         res.json(validSecurityQuestionsResponse.toObject());
                     }
                     else{
