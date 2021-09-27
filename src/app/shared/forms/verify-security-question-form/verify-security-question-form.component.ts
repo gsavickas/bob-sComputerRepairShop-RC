@@ -26,7 +26,7 @@ export class VerifySecurityQuestionFormComponent implements OnInit {
   errorMessages: Message[];
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private fb: FormBuilder,) { 
-this.username= this.route.snapshot.queryParamMap.get('username');//The username call will be used to get the value being passed over from the typescript code 
+this.username = this.route.snapshot.queryParamMap.get('username');//The username call will be used to get the value being passed over from the typescript code 
 console.log(this.username);
   
 //Makes call to findSecurityQuestions Api
@@ -49,11 +49,11 @@ console.log(this.username);
 }
 
 //This initialization has the form with the questions created
-  ngOnInit(): void {
+  ngOnInit() {
     this.form = this.fb.group({
       answerToSecurityQuestion1: [null, Validators.compose([Validators.required])],
       answerToSecurityQuestion2: [null, Validators.compose([Validators.required])],
-      answerToSecurityQuestion3: [null, Validators.compose([Validators.required])],
+      answerToSecurityQuestion3: [null, Validators.compose([Validators.required])]
     });
   }
 //this value gets the values that were entered
