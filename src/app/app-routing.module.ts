@@ -27,6 +27,7 @@ import { ResetPasswordFormComponent } from '../app/shared/forms/reset-password-f
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 const routes: Routes = [
   {
@@ -101,6 +102,10 @@ const routes: Routes = [
       {
         path: '404',
         component: NotFoundComponent
+      },
+      {
+        path: '500',
+        component: ErrorComponent
       }
 
     ]
@@ -108,6 +113,10 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'session/404'
+  },
+  {
+    path: '**',
+    redirectTo: 'session/500'
   }
 ];
 
