@@ -25,6 +25,7 @@ import { VerifyUsernameFormComponent } from '../app/shared/forms/verify-username
 import { VerifySecurityQuestionFormComponent } from '../app/shared/forms/verify-security-question-form/verify-security-question-form.component';
 import { ResetPasswordFormComponent } from '../app/shared/forms/reset-password-form/reset-password-form.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
       {
         path: 'users',
         component: UserListComponent
+      },
+      {
+        path: 'about-us',
+        component: AboutUsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'users/:userId',

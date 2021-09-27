@@ -49,7 +49,7 @@ console.log(this.username);
 }
 
 //This initialization has the form with the questions created
-  ngOnInit(): void {
+  ngOnInit(){
     this.form = this.fb.group({
       answerToSecurityQuestion1: [null, Validators.compose([Validators.required])],
       answerToSecurityQuestion2: [null, Validators.compose([Validators.required])],

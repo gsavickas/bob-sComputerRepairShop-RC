@@ -51,6 +51,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     VerifySecurityQuestionFormComponent,
     RegisterComponent,
     NotFoundComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
