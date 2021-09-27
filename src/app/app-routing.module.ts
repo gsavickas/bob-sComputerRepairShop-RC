@@ -26,6 +26,7 @@ import { VerifySecurityQuestionFormComponent } from './shared/forms/verify-secur
 import { ResetPasswordFormComponent } from '../app/shared/forms/reset-password-form/reset-password-form.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,11 @@ const routes: Routes = [
       {
         path: 'users',
         component: UserListComponent
+      },
+      {
+        path:"contact-us",
+        component: ContactUsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'about-us',

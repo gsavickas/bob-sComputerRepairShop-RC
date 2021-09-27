@@ -72,7 +72,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     VerifySecurityQuestionFormComponent,
     RegisterComponent,
     NotFoundComponent,
-    AboutUsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
