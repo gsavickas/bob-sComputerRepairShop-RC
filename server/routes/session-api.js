@@ -31,9 +31,9 @@ const saltRounds = 10;
                 }
                 else{
                     console.log(err);
-                    const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(q => q.questionText ===req.body.questionText1);
-                    const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(q2 => q2.questionText ===req.body.questionText2);
-                    const selectedSecurityQuestionThree = user.selectedSecurityQuestions.find(q3 => q3.questionText ===req.body.questionText3);
+                    const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(q => q.questionText === req.body.questionText1);
+                    const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(q2 => q2.questionText === req.body.questionText2);
+                    const selectedSecurityQuestionThree = user.selectedSecurityQuestions.find(q3 => q3.questionText === req.body.questionText3);
 
                     const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
                     const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;

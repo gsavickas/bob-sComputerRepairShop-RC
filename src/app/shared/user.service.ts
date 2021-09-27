@@ -27,7 +27,7 @@ export class UserService {
   }
 
   //Here we have the find users by Id function which returns users by the id. 
-  findUserByID(userId: string): Observable<any> {
+  findUserById(userId: string): Observable<any> {
     return this.http.get('/api/users/' + userId);
   }
 

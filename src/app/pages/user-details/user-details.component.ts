@@ -10,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from 'src/app/shared/user.service';
-import { User } from 'src/app/shared/user.interface';
+import { UserService } from './../../shared/user.service';
+import { User } from './../../shared/user.interface';
 
 @Component({
   selector: 'app-user-details',
@@ -34,8 +34,10 @@ export class UserDetailsComponent implements OnInit {
     //Here we map the parameter userId to this variable. 
     this.userId = this.route.snapshot.paramMap.get('userId');
 
+    console.log(this.userId);
+
     //Here we call our user service to call our findUserById function. 
-    this.userService.findUserByID(this.userId).subscribe(res => {
+    this.userService.findUserById(this.userId).subscribe(res => {
       //Here we return the user data. 
       this.user = res['data'];
       //If there is an error we log it here. 
