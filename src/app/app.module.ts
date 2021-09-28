@@ -53,7 +53,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+<<<<<<< Updated upstream
 import { ErrorComponent } from './pages/error/error.component';
+=======
+>>>>>>> Stashed changes
 import { ContactUsComponent  } from './pages/contact-us/contact-us.component'
 
 @NgModule({
