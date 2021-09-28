@@ -1,14 +1,20 @@
 .signinTitle{
     text-align: center;
-    padding-left: 10%;
+    padding-left: 15%;
     font-weight: lighter;
 }
 
 
 .mat-card-top{
     position:absolute;
-    padding-top: 10px;
+    padding-top: 1px;
     float: right;
     width: 50%;
     height: 100%;
+}
+
+.left_signin{
+    background-image: url("/assets/BCRS_1.gif") ;
+    background-size: cover;
+    background-color: rgb(29, 109, 175);
 }
