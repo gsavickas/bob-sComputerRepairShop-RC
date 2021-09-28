@@ -30,7 +30,7 @@ export class ResetPasswordFormComponent implements OnInit {
    //This initialization creates a form for the password
   ngOnInit() {
     this.form = this.fb.group({
-      password: [null, Validators.compose([Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d{8,}$')])]
+      password: [null, Validators.compose([Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$')])]
     });
   }
 
