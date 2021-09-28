@@ -31,17 +31,14 @@ const saltRounds = 10;
                 }
                 else{
                     console.log(err);
-                    const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(q => q.questionText === req.body.questionText1);
-                    const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(q2 => q2.questionText === req.body.questionText2);
-                    const selectedSecurityQuestionThree = user.selectedSecurityQuestions.find(q3 => q3.questionText === req.body.questionText3);
-
+                    const selectedSecurityQuestionOne = user.selectedSecurityQuestions.find(q => q.questionText ===req.body.questionText1);
+                    const selectedSecurityQuestionTwo = user.selectedSecurityQuestions.find(q2 => q.questionText ===req.body.questionText2);
+                    const selectedSecurityQuestionThree = user.selectedSecurityQuestions.find(q3 => q.questionText ===req.body.questionText3);
                     const isValidAnswerOne = selectedSecurityQuestionOne.answerText === req.body.answerText1;
                     const isValidAnswerTwo = selectedSecurityQuestionTwo.answerText === req.body.answerText2;
                     const isValidAnswerThree = selectedSecurityQuestionThree.answerText === req.body.answerText3;
-
                     if (isValidAnswerOne && isValidAnswerTwo && isValidAnswerThree){
                         console.log(`User ${user.userName} answer their security questions correctly`);
-                        const validSecurityQuestionsResponse = new BaseResponse('200', 'success', user);
                         res.json(validSecurityQuestionsResponse.toObject());
                     }
                     else{
@@ -54,10 +51,12 @@ const saltRounds = 10;
         }
         catch (e){
             console.log(e);
-            const verifySecurityQuestionCatchErrorResponse = new ErrorResponse('500', "Internal server error", e.message);
+            const verifySecurityQuestionCatchErrorResponse = new ErrorResponse('500', "internal server error", e.message);
             res.status(500).send(verifySecurityQuestionCatchErrorResponse.toObject());
         }
      })
+
+
 
 /**
  * User sign-in
