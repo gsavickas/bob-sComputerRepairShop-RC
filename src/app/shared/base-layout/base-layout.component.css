@@ -19,8 +19,10 @@
   
   .footer {
     bottom: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
+    height: 50px;
+    
   }
   
   .footer-content {
@@ -28,10 +30,13 @@
     font-weight: lighter;
     padding-left: 100px;
     letter-spacing: 3px;
+    background: rgb(70, 75, 95);
+    color: white;
   }
   
   .bu-link {
     text-decoration: none;
+    color: rgb(79, 145, 238);
   }
   
   .bu-link:hover {

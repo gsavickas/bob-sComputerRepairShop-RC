@@ -28,6 +28,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { ServicesComponent } from './pages/services/services.component';
 
 const routes: Routes = [
   {
@@ -71,6 +72,9 @@ const routes: Routes = [
       {
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent
+      },
+      { path: 'services', 
+        component: ServicesComponent 
       },
     ],
     canActivate: [AuthGuard]
