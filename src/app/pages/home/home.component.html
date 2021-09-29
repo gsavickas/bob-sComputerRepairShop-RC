@@ -1,8 +1,40 @@
-<div fxLayout="column" class="main-welcome">
-  <h1 class="title">
-    Welcome to WEB 450's - Bob's Computer Repair Shop <br />
-    <span class="subtitle">
-      Pay close attention to the requirements, double and triple check the files for code attribution, and do not wait unitl the last minute to begin working on each item.
-    </span>
-  </h1>
-</div>
+<!--
+ * * Title: home.component.html
+ * Author: Larry Ohaka
+ * Date: 7/3/21
+ * Description: Input Properties
+-->
+<mat-card class="service-card" >
+<main >
+  <h1 class="text-5xl md:text-6xl font-bold text-center" fxLayoutAlign="center start" style="font-size: 40px;line-height: 40px; color: rgb(77, 91, 105);">Cracked screen? Dead Battery? WE CAN FIX IT!</h1>
+
+
+    <div fxLayout="row wrap"   class="main-card">
+      
+<!--Computer Repair-->
+        <div class="cr" style="float: left;text-align: center;">
+          <img src="./assets/BCRS_icons-02.png" style="width: 270px;">
+          <h2 >Computer Repair</h2>
+       <p>Click button below to see our varying computer repair services!</p>
+            <button
+              id="servicesBtn"
+              routerLink="/services"
+              mat-flat-button color="accent" style="background-color: rgb(32, 105, 179); color: white;">Services</button>
+        </div>
+
+
+
+<!--SOftware Services-->
+<div class="ss" style="float: right; text-align: center;">
+  <img src="./assets/BCRS_icons-03.png" style="width: 228px;">
+     <h2 >Software Services</h2>
+    <p>Click button below to see our varying software repair services!</p>
+       <button
+         id="servicesBtn"
+         routerLink="/services"
+         mat-flat-button color="accent" style="background-color: rgb(32, 105, 179);color: white;">Service</button>
+   </div>
+
+  </div>
+</main>
+</mat-card>

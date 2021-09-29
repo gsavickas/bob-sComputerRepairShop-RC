@@ -54,7 +54,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { ContactUsComponent  } from './pages/contact-us/contact-us.component'
+import { ContactUsComponent  } from './pages/contact-us/contact-us.component';
+import { InvoiceComponent } from './pages/invoice/invoice.component';
+import { ServicesComponent } from './pages/services/services.component'
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { ContactUsComponent  } from './pages/contact-us/contact-us.component'
     NotFoundComponent,
     AboutUsComponent,
     ErrorComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    InvoiceComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,

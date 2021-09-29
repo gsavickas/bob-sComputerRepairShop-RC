@@ -15,7 +15,7 @@
     <mat-toolbar-row>
         <div style="width: 100%">
            
-            <h1 style="text-align: center; padding-left: 10%; font-weight: lighter; color: aliceblue;">
+            <h1 style=" padding-left: 10%; font-weight: lighter; color: aliceblue; float: inline-end;">
                 <img src="./assets/BCRS_logo-05.png" style="width: 40px ;"/>
                 <b style="padding: 5px;">BOB'S COMPUTER REPAIR SHOP</b><br/>
             </h1>
@@ -28,8 +28,8 @@
 </mat-toolbar>
 
 <div fxLayout="row wrap" >
-    <div fxFlex.gt-sm="55" fxFlex="100">
-        <mat-card class="mat-card-top">
+    <div fxFlex.gt-sm="55" fxFlex="100" >
+        <mat-card class="mat-card-top" style="background-color: white;">
             <mat-card-title style="text-align: center; font-size: 48px; font-weight: lighter; padding-top: 45px;" class="mat-headline">User Sign in</mat-card-title>
            
 
@@ -59,7 +59,7 @@
 
                     <!--Submit button-->
                     <mat-card-actions>
-                        <button type="submit" [disabled]="!form.valid" fxFlex mat-raised-button color="accent">Submit</button>
+                        <button type="submit" [disabled]="!form.valid" fxFlex mat-raised-button color="accent" style="color: white;">Submit</button>
                     </mat-card-actions>
                     <br/>
                     

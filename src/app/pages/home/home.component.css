@@ -1,14 +1,19 @@
-.main-welcome {
-    margin-top: 30px;
-  }
-  
-  .title {
-    text-align: center;
-    font-weight: lighter;
-  }
-  
-  .subtitle {
-    text-align: center;
-    font-size: 14px;
-  }
-  
+
+.cr{
+  padding: 20px;
+}
+
+.ss{
+  padding: 20px;
+}
+
+
+.service-card{
+  width: 95%;
+
+}
+
+.main-card{
+  justify-content: center;
+  align-items: center;
+}
