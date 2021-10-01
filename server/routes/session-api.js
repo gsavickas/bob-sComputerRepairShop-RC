@@ -85,7 +85,7 @@ router.post('/signin', async(req, res) => {
                     /**
                      * If the password is valid
                      */
-                    if (passwordIsValid)
+                    if (passwordIsValid && !(user.isDisabled))
                     {
                         console.log('Login successful');
                         const signinResponse = new BaseResponse(200, 'Login successful', user);
