@@ -44,6 +44,7 @@ export class SigninComponent implements OnInit {
       /**
        * Once this far the user will be authenticated and gain access to the site
        */
+        sessionStorage.setItem('name',`${res['data'].firstName}`)
         this.cookieService.set('sessionuser', res['data'].userName, 1);
         this.router.navigate(['/']);
       }

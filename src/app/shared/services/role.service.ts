@@ -49,4 +49,9 @@ export class RoleService {
       return this.http.delete(`/api/roles/${roleId}`);
   }
 
+  // This finds a particular user's role
+  findUserRole(userName: string): Observable<any>{
+    return this.http.get(`/api/users/${userName}/role`);
+  }
+
 }

@@ -24,7 +24,11 @@
    constructor(private cookieService: CookieService, private router: Router) { 
      //isLoggedIn constructor ------> "? true : false" = if this returns something it will return true, otherwise it will return false
      this.isLoggedIn = this.cookieService.get('sessionuser')? true : false;
-     this.name = sessionStorage.getItem('firstName');
+
+     // Debugging
+     console.log("This is the new test " + sessionStorage.getItem('name'));
+
+     this.name = sessionStorage.getItem('name');
      console.log('Signed in as a User' + this.name);
    }
  
