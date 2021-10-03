@@ -56,7 +56,11 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { ContactUsComponent  } from './pages/contact-us/contact-us.component';
 import { InvoiceComponent } from './pages/invoice/invoice.component';
-import { ServicesComponent } from './pages/services/services.component'
+import { ServicesComponent } from './pages/services/services.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
+import { TableModule } from 'primeng/table';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +85,10 @@ import { ServicesComponent } from './pages/services/services.component'
     ErrorComponent,
     ContactUsComponent,
     InvoiceComponent,
-    ServicesComponent
+    ServicesComponent,
+    RoleListComponent,
+    RoleCreateComponent,
+    RoleDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +113,8 @@ import { ServicesComponent } from './pages/services/services.component'
     MessagesModule,
     MatStepperModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    TableModule
 
   ],
   providers: [
