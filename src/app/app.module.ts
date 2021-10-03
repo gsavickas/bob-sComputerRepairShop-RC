@@ -30,7 +30,8 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
-import { MatCardModule } from '@angular/material/card';
+import { MatCardModule} from '@angular/material/card';
+
 
 
 import { MatInputModule } from '@angular/material/input';
@@ -61,6 +62,7 @@ import { RoleListComponent } from './pages/role-list/role-list.component';
 import { TableModule } from 'primeng/table';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { InvoiceSummaryDialogComponent } from './shared/invoice-summary-dialog/invoice-summary-dialog.component'; 
 
 @NgModule({
   declarations: [
@@ -88,7 +90,8 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
     ServicesComponent,
     RoleListComponent,
     RoleCreateComponent,
-    RoleDetailsComponent
+    RoleDetailsComponent,
+    InvoiceSummaryDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@
 ============================================
 ; Title:  Bob's Computer Repair Shop
 ; Author: Grayton Savickas, James Pinson
-; Date:   30 Sep 2021
+; Date:   25 Sep 2021
 ; Description: App module
 ;===========================================
 */
@@ -28,6 +28,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { InvoiceComponent } from './pages/invoice/invoice.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
@@ -76,9 +77,12 @@ const routes: Routes = [
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent
       },
-      { path: 'services', 
+
+      {
+        path: 'services',
         component: ServicesComponent 
       },
+
       {
         path: 'roles',
         component: RoleListComponent
@@ -91,6 +95,8 @@ const routes: Routes = [
         path: 'roles/:roleId',
         component: RoleDetailsComponent
       }
+
+    
     ],
     canActivate: [AuthGuard]
   },
