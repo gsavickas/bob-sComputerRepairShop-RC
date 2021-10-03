@@ -1,5 +1,6 @@
 <div fxLayout="column">
     <mat-card class="w-50">
+        <!--This is our title card with the create button as the subtitle. -->
         <mat-card-title>Role Configuration</mat-card-title>
         <mat-card-subtitle>
             <button mat-button routerLink="/roles/create/new" color="accent">Create</button>
@@ -7,8 +8,10 @@
 
         <br />
 
+        <!--This returns the error message to the user to see. -->
         <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
 
+        <!--This is our table of roles with two columns of name and functions. -->
         <p-table [value]="roles" styleCLass="p-datatable-sm" responsiveLayout="scroll">
             <ng-template pTemplate="header">
                 <tr style="font-size: 14px; font-family: Roboto, 'Helvetica Neue', sans-serif;">
@@ -16,6 +19,7 @@
                 <th style="background-color: #eeeeee;">Functions</th>
             </tr>
             </ng-template>
+            <!--This is the body of the table which contains the role name and the icons to edit or delete a role. -->
             <ng-template pTemplate="body" let-role>
                 <tr style="font-size: 14px; font-family: Roboto, 'Helvetica Neue', sans-serif;">
                 <td>{{ role.text }}</td>
