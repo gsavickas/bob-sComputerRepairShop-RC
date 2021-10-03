@@ -9,8 +9,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DeleteRecordDialogComponent } from './../../shared/delete-record-dialog/delete-record-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Role } from 'src/app/shared/models/role.interface';
-import { RoleService } from 'src/app/shared/services/role.service';
+import { Role } from './../../shared/models/role.interface';
+import { RoleService } from './../../shared/services/role.service';
 import { Message } from 'primeng/api';
 
 

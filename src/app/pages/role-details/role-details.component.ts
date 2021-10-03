@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RoleService } from 'src/app/shared/services/role.service';
-import { Role } from 'src/app/shared/models/role.interface';
+import { RoleService } from './../../shared/services/role.service';
+import { Role } from './../../shared/models/role.interface';
 
 @Component({
   selector: 'app-role-details',
