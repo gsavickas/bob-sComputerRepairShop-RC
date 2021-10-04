@@ -15,7 +15,7 @@ import { Invoice } from '../models/invoice'
 })
 export class InvoiceService {
     constructor(private http: HttpClient) {}
-
+//This sends the invoice to the database
     createInvoice(userName: string, invoice: Invoice): Observable<any> {
         return this.http.post(`/api/invoices/${userName}`, {
             userName: userName,

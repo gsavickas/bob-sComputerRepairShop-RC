@@ -5,6 +5,7 @@
  * Description: invoice model
  */
 
+//the selected items in the user interface
 export interface LineItem{
     title: string;
     price: number;

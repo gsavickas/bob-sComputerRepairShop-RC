@@ -284,7 +284,7 @@ router.get('/:userName/role', async (req, res) => {
       {
         console.log(user);
         const findUserRoleResponse = new BaseResponse('200', 'Query successful', user.role);
-        res.json(findUSerRoleResponse.toObject());
+        res.json(findUserRoleResponse.toObject());
       }
     })
   }
