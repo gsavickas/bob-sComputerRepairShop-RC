@@ -17,11 +17,13 @@
    styleUrls: ['./base-layout.component.css']
  })
  export class BaseLayoutComponent implements OnInit {
- userRole: Role
+  year: number = Date.now();
+  username: string;
+  userRole: Role
  
    //Cookie service, router
    constructor(private cookieService: CookieService, private router: Router, private roleService: RoleService) { 
-     this.roleService.findUserRole(this.cookieService.get('sessionuser')).subscribe(res =>{
+     this.roleService.findUserRole(this.cookieService.get('sessionuser')).subscribe((res) =>{
        this.userRole = res['data'];
      })
    }
@@ -36,4 +38,10 @@
      //pushes you back to the signin page
      this.router.navigate(['/session/signin']);
    }
+
+//Administrator check
+   isAdmin() {
+    const role = this.cookieService.get('user_role');
+    return role === 'admin';
+  }
   }

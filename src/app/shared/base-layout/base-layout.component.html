@@ -77,13 +77,28 @@ Security Questions
 
   <!-- main content -->
 <div fxLayout="row wrap" fxLayoutAlign="center start">
-  <div fxFlex.gt-sm="55" fxFlex="100">
+
     <mat-card class="mat-card-top">
     <mat-card-content>
       <router-outlet></router-outlet>
     </mat-card-content>
     </mat-card>
   </div>
-</div>
+
+<br />
+
+  <div fxLayout>
+    <footer class="footer">
+      <mat-toolbar class="footer-content">
+        <p>
+          &copy; {{ year | date: "yyyy" }} - Bob's Computer Repair Shop -
+          <a href="hhttps://github.com/gsavickas/bob-sComputerRepairShop-RC/tree/dev/src/app/pages"
+            target="_blank">RavenClaw</a>
+        </p>
+      </mat-toolbar>
+    </footer>
+  </div>
+
+
  
 

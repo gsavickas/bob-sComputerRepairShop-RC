@@ -5,8 +5,9 @@
  * Description: Product service 
  */
 
-import { Injectable } from "@angular/core";
-import { Product } from "../models/product.interface";
+import { Injectable } from '@angular/core';
+import { Product } from '../models/product.interface';
+
 
 
 @Injectable({
@@ -16,10 +17,11 @@ import { Product } from "../models/product.interface";
 export class ProductService {
 
     products: Product[];
-
+//Constructor list that displays the product.interface
     constructor() {
         this.products = [
             {
+                
                 id: 100,
                 title: 'Password Reset',
                 price: 39.99,
@@ -27,7 +29,7 @@ export class ProductService {
             },
             {
                 id: 101,
-                title: 'Spyware Removal',
+                title: 'Spyware',
                 price: 39.99,
                 checked: false
             },
@@ -57,13 +59,13 @@ export class ProductService {
             },
             {
                 id: 106,
-                title: 'Disk CLean-up',
+                title: 'Disk Clean-up',
                 price: 45.00,
                 checked: false
             },
         ]
     }
-
+//returns list of products
     getProducts(): Product[] {
         return this.products;
     }

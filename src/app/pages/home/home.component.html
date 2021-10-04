@@ -7,41 +7,77 @@
 <!--<mat-card class="service-card" >-->
 <div fxLayout="column" class="main-welcome">
   <div fxFlex>
-    <h1 class="title" style="color: rgb(19, 89, 170);">
-      Welcome to Bob's Computer Repair Shop <br/>
-      <span class="subtitle">
-        Service Repair Form
-      </span>
+ 
+    <h1 class="title" >
+      <img src="./../../../assets/BCRS_icons-03.png" style="width: 190px;padding: 12px;" align="center">
+     <br/> Welcome to<b style="color: rgb(19, 89, 170);"> BOB'S COMPUTER REPAIR SHOP</b> <br/>
+     
     </h1>
   </div>
 
-  <div fxFlex>
-    <mat-card class="mat-elevation-z0" style="width: 65%; margin: 0 auto;">
+  <div style="padding: 20px; align-items: center;" fxFlex="50%">
+    <mat-card class="mat-elevation-z0"  fxLayout="column" >
     
     
     <!--products form-->
-    <form #invoiceForm="ngForm" (submit)="generateInvoice();">
-      <mat-card-content>
+    <form #invoiceForm="ngForm" (submit)="generateInvoice();" >
+      <mat-card-content >
         <!--fx layout column container-->
         <div fxLayout="column" fxLayoutGap="5px">
 
           <!--Services check boxes-->
-          <div fxFlex>
+          <div  fxFlex="50%">
 
             <mat-card class="mat-elevation-z0">
 
-             <p-messages [(value)]="errorMessage" [enableService]="false"></p-messages>
-              <p-messages [(value)]="successMessage" [enableService]="false"></p-messages>
+             <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+              <p-messages [(value)]="successMessages" [enableService]="false"></p-messages>
 
               <mat-card-subtitle>Services</mat-card-subtitle>
+             
+              
+<!--
+<div >
+              <img src="./../../../assets/BCRS_icons-02.png" style="width: 240px; align-items: center;"><h3 style="text-align: center;">SOFTWARE SERVICES</h3>
+            </div>
 
-              <mat-card-content>
-                <div *ngFor="let product of products">
-                  <mat-checkbox value="{{ product.price }}" [{ngModel}]="product.checked" [name]="product.title">
-                    {{ product.title }}({{product.price | currency }})
-                  </mat-checkbox>
-                </div>
-              </mat-card-content>
+            <div >
+              <img src="./../../../assets/BCRS_icons-03.png" style="width: 240px; align-items: center;"><h3 style="text-align: center;">SOFTWARE SERVICES</h3>
+            </div>
+-->
+      
+
+            <div class="products">
+
+
+              <ng-container *ngFor="let product of products">
+                
+                <mat-card class="mat-elevation-z3">
+                  <!-- service title -->
+                  <mat-card-title>
+                    <mat-checkbox value="{{ product.price }}" [(ngModel)]="product.checked" [name]="product.title">
+                      {{ product.title }}
+                      <img  class="images" src="./resources/img/new.png"/>
+                    </mat-checkbox>
+                  </mat-card-title>
+
+                  
+
+                  <br />
+                 
+                  <!-- service price -->
+                  <mat-card-content>
+                    <mat-list>
+                      <mat-list-item>{{ product.price | currency }}</mat-list-item>
+                    </mat-list>
+                  </mat-card-content>
+
+                </mat-card>
+              </ng-container>
+
+
+
+            </div>
             </mat-card>
 
             <br />

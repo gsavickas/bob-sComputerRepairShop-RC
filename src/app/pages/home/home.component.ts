@@ -16,8 +16,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { LineItem } from '../../shared/models/line-item.interface';
 import { Message } from 'primeng/api/message';
 import { MatDialog } from '@angular/material/dialog';
-
 import { Invoice } from './../../shared/models/invoice';
+
 
 
 @Component({
@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
   products: Product[];
   lineItems: LineItem[];
   invoice: Invoice;
-  errorMessage: Message[];
-  successMessage: Message[];
+  errorMessages: Message[];
+  successMessages: Message[];
 
   constructor(private cookieService: CookieService, private fb: FormBuilder, private router: Router, private productService: ProductService, private invoiceService: InvoiceService, private dialogRef: MatDialog) { 
 
@@ -53,10 +53,10 @@ export class HomeComponent implements OnInit {
 
 
   generateInvoice() {
-    console.log('generateInvoice() this.invoice')
+    console.log('generateInvoice() this.invoice');
     console.log(this.invoice);
 
-    console.log('generateInvoice() this.products')
+    console.log('generateInvoice() this.products');
     console.log(this.products);
 
     for (let product of this.products) {
@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
             this.reloadProducts();
             this.clearLineItems();
             this.invoice.clear();
-            this.successMessage = [
+            this.successMessages = [
               { severity: 'success', summary: "Success", detail: "Your order has been processed successfully!"}
             ]
           })
@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit {
         }
       })
     }else {
-      this.errorMessage = [
+      this.errorMessages = [
         { severity: 'error', summary: 'Error', detail: 'You must select at least one service.'}
       ]
     }

@@ -10,4 +10,7 @@ export interface Product {
     title: string;
     price: number;
     checked: boolean;
-}
+};
+
+
+
