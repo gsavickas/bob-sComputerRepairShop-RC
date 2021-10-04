@@ -63,6 +63,8 @@ import { TableModule } from 'primeng/table';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
 import { InvoiceSummaryDialogComponent } from './shared/invoice-summary-dialog/invoice-summary-dialog.component'; 
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,8 @@ import { InvoiceSummaryDialogComponent } from './shared/invoice-summary-dialog/i
     RoleListComponent,
     RoleCreateComponent,
     RoleDetailsComponent,
-    InvoiceSummaryDialogComponent
+    InvoiceSummaryDialogComponent,
+    PurchasesByServiceGraphComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +120,8 @@ import { InvoiceSummaryDialogComponent } from './shared/invoice-summary-dialog/i
     MatStepperModule,
     MatListModule,
     MatSelectModule,
-    TableModule
+    TableModule,
+    ChartModule
 
   ],
   providers: [

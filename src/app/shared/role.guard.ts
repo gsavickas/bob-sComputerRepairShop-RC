@@ -1,4 +1,4 @@
-import { RoleService } from './services/role.service';
+import { RoleService } from '../shared/services/role.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';

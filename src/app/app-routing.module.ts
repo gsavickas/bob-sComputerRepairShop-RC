@@ -33,6 +33,8 @@ import { ServicesComponent } from './pages/services/services.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
 import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { RoleGuard } from './shared/role.guard';
 
 const routes: Routes = [
   {
@@ -42,6 +44,11 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'purchases-by-service-graph',
+        component: PurchasesByServiceGraphComponent,
+        canActivate: [RoleGuard]
       },
       {
         path: 'users',
