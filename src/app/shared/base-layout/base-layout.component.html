@@ -81,6 +81,18 @@ Security Questions
   </mat-menu>
 
 
+  <mat-menu #reports="matMenu">
+    <button mat-menu-item routerLink="/purchases-by-service-graph">
+    <mat-icon>pie_chart</mat-icon>
+  </button>
+  Purchases by Service
+  </mat-menu>
+</mat-menu>
+
+<button mat-menu-item (click)="signout()">
+  <mat-icon>exit_to_app</mat-icon>
+  Sign out
+</button>
     </mat-toolbar>
   </nav>
 
