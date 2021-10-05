@@ -34,6 +34,7 @@ import { MatCardModule} from '@angular/material/card';
 
 
 
+
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CookieService } from 'ngx-cookie-service';
@@ -94,7 +95,8 @@ import { ChartModule } from 'primeng/chart';
     RoleCreateComponent,
     RoleDetailsComponent,
     InvoiceSummaryDialogComponent,
-    PurchasesByServiceGraphComponent
+    PurchasesByServiceGraphComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -121,7 +123,7 @@ import { ChartModule } from 'primeng/chart';
     MatListModule,
     MatSelectModule,
     TableModule,
-    ChartModule
+    ChartModule,
 
   ],
   providers: [

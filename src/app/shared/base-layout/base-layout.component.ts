@@ -19,13 +19,22 @@
  export class BaseLayoutComponent implements OnInit {
   year: number = Date.now();
   username: string;
-  userRole: Role
+  userRole: Role;
+  isLoggedIn: boolean;
+  name: String;
+
+  
  
    //Cookie service, router
    constructor(private cookieService: CookieService, private router: Router, private roleService: RoleService) { 
      this.roleService.findUserRole(this.cookieService.get('sessionuser')).subscribe((res) =>{
        this.userRole = res['data'];
      })
+     this.isLoggedIn = this.cookieService.get('sessionuser')? true : false;
+     // Debugging
+     console.log("This is the new test " + sessionStorage.getItem('name'));
+     this.name = sessionStorage.getItem('name');
+     console.log('Signed in as a User' + this.name);
    }
  
    ngOnInit(){
