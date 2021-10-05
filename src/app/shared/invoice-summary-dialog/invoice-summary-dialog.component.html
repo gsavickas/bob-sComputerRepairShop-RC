@@ -1,0 +1,92 @@
+<!--
+ * * Title: invoice.component.html
+ * Author: Larry Ohaka
+ * Date: 7/25/21
+ * Description: Input Properties
+
+ -->
+
+ <div fxLayout="column">
+     <mat-card class="mat-elevation-z0">
+         <mat-card-title mat-dialog-title style="text-align: center;">
+            <!--Displays username-->
+        {{ username }} please confirm your order
+    </mat-card-title>
+    <mat-card-subtitle style="text-align: center;">
+        <!--Displays order date-->
+    Order date: {{ orderDate | date }}
+</mat-card-subtitle>
+
+<mat-card-content mat-dialog-content>
+
+    <div fxLayout="column" fxLayoutGap="10px">
+
+<!--Displays Items received-->
+        <div fxFlex>
+            <mat-card>
+                <mat-card-title>Services</mat-card-title>
+                <mat-card-content>
+                    <div *ngFor="let lineItem of invoice.getLineItems()">
+                        <mat-list>
+                            <mat-list-item>
+                                {{lineItem.title}};
+                                <div fxFlex></div>
+                                {{lineItem.price | currency}}
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+<!--Displays fees-->
+        <div fxFlex>
+            <mat-card>
+                <mat-card-title>Standard Fees</mat-card-title>
+                <mat-card-content>
+                    <mat-list>
+                        <mat-list-item>
+                            Parts:
+                            <div fxFlex></div>
+                            {{ parts | currency }}
+                        </mat-list-item>
+
+                        <mat-list-item>
+                            Labor @ 50/hr:
+                            <div fxFlex></div>
+                            {{ labor | currency}}
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+<!--Displays Total-->
+        <div fxFlex>
+            <mat-card>
+                <mat-card-content>
+                    <mat-list>
+                        <mat-list-item>
+                            &nbsp;<div fxFlex></div>
+                            Total charges: {{total | currency}}
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+<!--Cancel and confirm Order-->
+        <br />
+        <div fxFlex fxLayoutAlign="end">
+            <button mat-raised-button matDialogClose="cancel" cdkFocusInitial color="warn" style="background-color: rgb(19, 89, 170);">
+                Cancel
+              </button> &nbsp;&nbsp;
+              <button mat-raised-button matDialogClose="confirm">
+                Confirm Order
+              </button>
+        </div>
+    </div>
+</mat-card-content>
+     </mat-card>
+ </div>
+

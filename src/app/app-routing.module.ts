@@ -28,6 +28,14 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { InvoiceComponent } from './pages/invoice/invoice.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { RoleGuard } from './shared/role.guard';
+import {MatCheckboxModule} from '@angular/material/checkbox' 
 
 const routes: Routes = [
   {
@@ -37,6 +45,11 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'purchases-by-service-graph',
+        component: PurchasesByServiceGraphComponent,
+        canActivate: [RoleGuard]
       },
       {
         path: 'users',
@@ -72,6 +85,26 @@ const routes: Routes = [
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent
       },
+
+      {
+        path: 'services',
+        component: ServicesComponent 
+      },
+
+      {
+        path: 'roles',
+        component: RoleListComponent
+      },
+      {
+        path: 'roles/create/new',
+        component: RoleCreateComponent
+      },
+      {
+        path: 'roles/:roleId',
+        component: RoleDetailsComponent
+      }
+
+    
     ],
     canActivate: [AuthGuard]
   },
@@ -122,6 +155,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'})],
-  exports: [RouterModule]
+  exports: [RouterModule, MatCheckboxModule,]
 })
 export class AppRoutingModule { }

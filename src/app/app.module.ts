@@ -30,7 +30,9 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
-import { MatCardModule } from '@angular/material/card';
+import { MatCardModule} from '@angular/material/card';
+
+
 
 
 import { MatInputModule } from '@angular/material/input';
@@ -54,7 +56,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { ContactUsComponent  } from './pages/contact-us/contact-us.component'
+import { ContactUsComponent  } from './pages/contact-us/contact-us.component';
+import { InvoiceComponent } from './pages/invoice/invoice.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { RoleListComponent } from './pages/role-list/role-list.component';
+import { TableModule } from 'primeng/table';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { InvoiceSummaryDialogComponent } from './shared/invoice-summary-dialog/invoice-summary-dialog.component'; 
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -77,7 +88,15 @@ import { ContactUsComponent  } from './pages/contact-us/contact-us.component'
     NotFoundComponent,
     AboutUsComponent,
     ErrorComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    InvoiceComponent,
+    ServicesComponent,
+    RoleListComponent,
+    RoleCreateComponent,
+    RoleDetailsComponent,
+    InvoiceSummaryDialogComponent,
+    PurchasesByServiceGraphComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -102,7 +121,9 @@ import { ContactUsComponent  } from './pages/contact-us/contact-us.component'
     MessagesModule,
     MatStepperModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    TableModule,
+    ChartModule,
 
   ],
   providers: [

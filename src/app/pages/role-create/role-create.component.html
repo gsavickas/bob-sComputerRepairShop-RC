@@ -1,0 +1,36 @@
+<div fxLayout="column">
+    <mat-card class="mat-elevation-z8 w-50">
+        <!--This is the header. -->
+        <mat-card-title>Create Role</mat-card-title>
+        <br />
+
+        <!--This displays the error message for the user. -->
+        <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+
+        <!--This creates our form which calls the create function on submit. -->
+        <form [formGroup]="form" (ngSubmit)="create()" #roleForm>
+            <mat-card-content>
+                <div fxLayout="column" fxLayoutGap="10px">
+                    <mat-form-field appearance="fill">
+                        <!--This is our label of role with an input field. -->
+                        <mat-label>Role</mat-label>
+                        <input matInput [formControl]="form.controls['text']" />
+
+                        <!--This is the error handling which lets the user know that this is a required field. -->
+                        <mat-error class="error" *ngIf="form.controls['text'].hasError('required') && form.controls['text'].touched">
+                            Role is a required field. 
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <br/>
+            <mat-card-actions align="end">
+                <!--This is the cancel button which calls the cancel function. -->
+                <button mat-raised-button (click)="cancel()" color="primary">Cancel</button>
+                <!--This is the submit button which creates the role but is disabled until the form is valid. -->
+                <button mat-raised-button [disabled]="!form.valid" color="accent">Submit</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

@@ -1,3 +1,10 @@
+/**
+ * * Title: signin.component.ts
+ * Author: Grayton Savickas
+ * Date: 09/21/21
+ * Description: Signin page
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -32,11 +39,12 @@ export class SigninComponent implements OnInit {
       password
     }).subscribe(res =>{
       console.log(res['data']);
-      if (res['data'].userName)
+      if (res['data'].userName  && !(res['data'].isDisabled))
       {
       /**
        * Once this far the user will be authenticated and gain access to the site
        */
+        sessionStorage.setItem('name',`${res['data'].firstName}`)
         this.cookieService.set('sessionuser', res['data'].userName, 1);
         this.router.navigate(['/']);
       }

@@ -1,8 +1,110 @@
+<!--
+ * * Title: home.component.html
+ * Author: Larry Ohaka
+ * Date: 7/3/21
+ * Description: Input Properties
+-->
+<!--<mat-card class="service-card" >-->
 <div fxLayout="column" class="main-welcome">
-  <h1 class="title">
-    Welcome to WEB 450's - Bob's Computer Repair Shop <br />
-    <span class="subtitle">
-      Pay close attention to the requirements, double and triple check the files for code attribution, and do not wait unitl the last minute to begin working on each item.
-    </span>
-  </h1>
+  <div >
+ 
+    <h1 class="title"  >
+      <img src="./../../../assets/BCRS_icons-03.png" style="width: 190px;padding: 12px;">
+     <br/> Welcome to  <br/> <b style="color: rgb(19, 89, 170);font-size: 40px; line-height: 40px;"> BOB'S COMPUTER REPAIR SHOP</b> <br/>
+     
+    </h1>
+  </div>
+
+  <div style="padding: 10px;" fxFlex="50%">
+    <mat-card class="mat-elevation-z0"   >
+    
+    
+    <!--products form-->
+    <form #invoiceForm="ngForm" (submit)="generateInvoice();" >
+
+      <!--fx layout column container-->
+      <mat-card-content  >
+        <div fxLayout="column" fxLayoutGap="5px">
+
+          <!--Services check boxes-->
+          <mat-grid-list fxFlex="50%">
+
+            <mat-card class="mat-elevation-z0">
+<!--Message Success/Error-->
+             <p-messages [(value)]="errorMessages" [enableService]="false"></p-messages>
+              <p-messages [(value)]="successMessages" [enableService]="false"></p-messages>
+
+             
+            <div fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="10px" ngClass.gt-xs="ml-10" class="products">
+              <ng-container *ngFor="let product of products">
+  
+                <mat-card fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)">
+                  <!-- service title -->
+                  <mat-card-title>
+                    <mat-checkbox value="{{ product.price }}" [(ngModel)]="product.checked" [name]="product.title">
+                      {{ product.title }}
+                    </mat-checkbox>
+                  </mat-card-title>
+                  <img src={{product.image}} style="width: 100px; ">
+                  <br />
+                  <!-- service price -->
+                  <mat-card-content>
+                    <mat-list>
+                      <mat-list-item style="background-color: steelblue;color: white; width: 50%; height: 30%;">{{ product.price | currency }}</mat-list-item>
+                    </mat-list>
+                  </mat-card-content>
+                </mat-card>
+          </ng-container>
+            </div>
+            </mat-card>
+
+            <br />
+            <mat-divider></mat-divider>
+            <br/>
+          </mat-grid-list>
+          <!-- end services -->
+
+
+          <!-- Standard Fees-->
+          <div fxFlex>
+            <mat-card class="mat-elevation-z0">
+              <mat-card-subtitle> Standard Fees</mat-card-subtitle>
+
+              <mat-card-content>
+                <div fxLayout="column">
+                  <mat-form-field class="w-20" appearance="fill" fxFlex>
+                    <mat-label>Parts</mat-label>
+                    <input matInput [(ngModel)]="invoice.partsAmount" type="number" name="txtPartsAmount"/>
+                  </mat-form-field>
+
+                  <mat-form-field class="w-20" appearance="fill" fxFlex>
+                    <mat-label>Labor @ 50/hr</mat-label>
+                    <input matInput [(ngModel)]="invoice.laborHours" type="number" name="txtLaborHours"/>
+                  </mat-form-field>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+
+          <!--end standard feed section-->
+        </div>
+        <!-- end fx column container-->
+      </mat-card-content>
+      <!--end mat-card-content-->
+
+      <br/>
+      <mat-divider></mat-divider>
+      <br/>
+
+      <!--Form submission buttons-->
+
+      <mat-card-actions align="end">
+        <button mat-raised-button type="reset" style="background-color:rgb(19, 89, 170) ; color: white;">Cancel</button>
+        <button mat-raised-button color="accent">Generate Invoice</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+  </div>
 </div>
+

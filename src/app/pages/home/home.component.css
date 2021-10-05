@@ -1,14 +1,24 @@
-.main-welcome {
-    margin-top: 30px;
-  }
-  
-  .title {
-    text-align: center;
-    font-weight: lighter;
-  }
-  
-  .subtitle {
-    text-align: center;
-    font-size: 14px;
-  }
-  
+.main-welcome{
+  margin-top:30px;
+}
+
+.title{
+  text-align: center;
+  font-weight: lighter;
+}
+
+
+.subtitle{
+  text-align: center;
+  font-size: 14px;
+}
+
+.products{
+  padding: 5px 20px;
+ justify-content: center;
+  line-height:29px;
+}
+
+.h1 {
+font-size: 100px;
+}

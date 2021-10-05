@@ -10,10 +10,10 @@
 
   <!-- navigation -->
   <nav fxFlex >
-    <mat-toolbar style="background-color: rgb(32, 105, 179);">
+    <mat-toolbar style="background-color: rgb(19, 89, 170);">
       <div class="text-logo">
         <!-- logo -->
-        <button class="logo" routerLink="/" mat-button> <img src="./assets/BCRS_logo-05.png" style="width: 40px; padding:5px ;"/><b style="color: aliceblue;">BCRS</b></button>
+        <button class="logo" routerLink="/" mat-button> <img src="../../../assets/BCRS_logo-05.png" style="width: 40px; padding:5px ;"/><b style="color: aliceblue;">BCRS</b></button>
       </div>
       <!-- navbar container -->
       <div class="navbar-container" fxLayoutAlign="right" >
@@ -23,54 +23,93 @@
 
 <!-- logged out-->
       <div fxFlex></div>
+      <p style="color: white; font-size: 12px; margin-top: 17px;">Signed in as <b>{{ name }}</b></p>
+<button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs"  mat-button style="color: rgb(255, 255, 255);">
+  <mat-icon >person</mat-icon>
+</button>
+<mat-menu #session="matMenu" x-position="before">
+
+  <button mat-menu-item [matMenuTriggerFor]="configs">
+    <mat-icon>settings</mat-icon>
+    Configurations
+  </button>
+
+  <mat-menu #configs="matMenu">
+    <button mat-menu-item routerLink="/users">
+    <mat-icon>person_add</mat-icon>
+    Users
+  </button>
+
+  <button mat-menu-item routerLink="/roles">
+  <mat-icon>security</mat-icon>
+  Roles
+</button>
+
+<button mat-menu-item routerLink="/security-questions">
+<mat-icon>help</mat-icon>
+Security Questions
+</button>
+
+  </mat-menu>
+
+  <button *ngIf="userRole && userRole['role'] === 'admin'" mat-menu-item [matMenuTriggerFor]="reports">
+    <mat-icon>poll</mat-icon>
+    Reports
+  </button>
 
 
-      <div *ngIf="isLoggedIn">
-<!--Profile pic button to open menu-->
-        <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="User Profile Menu">
-          <mat-icon style="color: antiquewhite;">perm_identity</mat-icon>
-        </button>
+  <mat-menu #reports="matMenu">
+    <button mat-menu-item routerLink="/purchases-by-service-graph">
+    <mat-icon>pie_chart</mat-icon>
+  </button>
+  Purchases by Service
+  </mat-menu>
 
-        <mat-menu #profileMenu>
-          <p style="padding: 10px;">
-            Signed in as {{ userName }}
-          </p>
-          <mat-divider></mat-divider>
-<!--signOut function-->
-          <button mat-menu-item routerLink="/users">
-            <mat-icon>group</mat-icon>
-            <span>User Configuration</span>
-          </button>
-          <button mat-menu-item routerLink="/security-questions">
-            <mat-icon>question_answer</mat-icon>
-            <span>Question Configuration</span>
-          </button>
-          <button mat-menu-item (click)='signOut()'>
-            <mat-icon>logout</mat-icon>
-            <span>Sign Out</span>
-          </button>
-        </mat-menu>
-      </div>
+ 
+<button mat-menu-item (click)="signout()" >
+  
+  <mat-icon mat-button style="color: rgb(69, 69, 69);">exit_to_app</mat-icon>
+  Sign out
+</button>
+</mat-menu>
+
+  <mat-menu #reports="matMenu">
+    <button mat-menu-item routerLink="/purchases-by-service-graph">
+    <mat-icon>pie_chart</mat-icon>
+  </button>
+  Purchases by Service
+  </mat-menu>
+
 
     </mat-toolbar>
   </nav>
 
   <!-- main content -->
-  <div fxFlex>
-    <main class="main-content" fxFlex="100%;">
+<div>
+
+    <mat-card class="mat-card-top">
+    <mat-card-content>
       <router-outlet></router-outlet>
-    </main>
+    </mat-card-content>
+    </mat-card>
   </div>
 
-  <!-- footer -->
-  <div fxFlex>
+<br />
+
+  <div fxLayout>
     <footer class="footer">
       <mat-toolbar class="footer-content">
         <p>
-          &copy; {{year | date: 'yyyy'}} - Bob's Computer Repair Shop - <a href="https://www.bellevue.edu/" class="bu-link" target="_blank">Bellevue University</a>
+          &copy; {{ year | date: "yyyy" }} - Bob's Computer Repair Shop -
+          <a href="https://github.com/gsavickas/bob-sComputerRepairShop-RC/tree/dev/src/app/pages"
+            target="_blank">RavenClaw</a>
         </p>
       </mat-toolbar>
     </footer>
   </div>
-
 </div>
+ 
+
+
+ 
+

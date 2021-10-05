@@ -1,0 +1,33 @@
+<div fxLayout="column">
+    <mat-card class="mat-elevation-z8 w-50">
+        <!--This is the header of the page. -->
+        <mat-card-title>Role Details</mat-card-title>
+
+        <br/>
+        <form [formGroup]="form" (ngSubmit)="save()" #roleForm>
+            <mat-card-content>
+                <div fxLayout="column" fxLayoutGap="10px">
+                    <!--We create a form that has a label of role and one input field. -->
+                    <mat-form-field fxFlex appearance="fill">
+                        <mat-label>Role</mat-label>
+
+                        <input matInput [formControl]="form.controls['text']" />
+
+                        <!--This is the error handling that informs the user the role field is required. -->
+                        <mat-error class="error" *ngIf="form.controls['text'].hasError('required') && form.controls['text'].touched">
+                            Role is a required field. 
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <br/>
+            <mat-card-actions align="end">
+                <!--This is the cancel button which calls the cancel function. -->
+                <button mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+                <!--This is the submit button which updates the user but is disabled until the form is valid. -->
+                <button mat-raised-button [disabled]="!form.valid" color="accent">Submit</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,77 @@
+<!--
+ * * Title: invoice.component.html
+ * Author: Larry Ohaka
+ * Date: 7/25/21
+ * Description: Input Properties
+
+ -->
+
+<!-- close button -->
+<div style="text-align: right">
+    <button mat-icon-button matDialogClose="cancel">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  
+  <!-- summary  -->
+  <div class="font-bold">Invoice Summary</div>
+  <hr />
+  <br />
+  Date: {{ today | date }}
+  
+  <!-- list of services -->
+  <div>
+    <br />
+    <div *ngFor="let service of services">
+      <div>
+        {{ service.name }}
+        <div style="float: right">{{ service.price | currency }}</div>
+      </div>
+    </div>
+    <br />
+  
+    <!-- parts -->
+    <div>
+      <div *ngIf="parts">
+        <div>
+          Parts
+          <div style="float: right">{{ parts | currency }}</div>
+        </div>
+      </div>
+  
+      <!-- labor -->
+      <div *ngIf="totalWithService">
+        <div>
+          Labor
+          <div style="float: right">{{ totalWithService | currency }}</div>
+        </div>
+      </div>
+    </div>
+    <br />
+  
+    <!-- total -->
+    <div *ngIf="total">
+      <div>
+        Total Charges
+        <div style="float: right">{{ total | currency }}</div>
+      </div>
+    </div>
+  </div>
+  <br />
+  
+  <!-- print -->
+  <div style="text-align: right">
+    <button
+      class="
+        border-solid border border-gray-300
+        rounded
+        py-2
+        px-4
+        hover:bg-gray-100
+      "
+      onClick="window.print()"
+    >
+      <i class="fas fa-print"></i> Print
+    </button>
+  </div>
+  

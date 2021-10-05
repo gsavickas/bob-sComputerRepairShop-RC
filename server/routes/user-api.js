@@ -61,7 +61,7 @@ router.get('/:id', async(req, res) =>{
               const findByIdMongodbErrorResponse = new ErrorResponse(500, 'Internal Server Error', err);
               res.status(500).send(findByIdMongodbErrorResponse.toObject());
           }
-          //if there isnt an error it will return security  question selected
+          //if there isn't an error it will return security  question selected
           else{
               console.log(user);
               const findByIdResponse = new BaseResponse(200, 'Query successful', user);
@@ -167,6 +167,10 @@ router.put('/:id', async (req, res) => {
           email: req.body.email
         })
 
+        user.role.set({
+          role: req.body.role
+        });
+
         user.save(function(err, savedUser) {
           if (err) {
             console.log(err);
@@ -261,5 +265,36 @@ router.get('/:userName/security-questions', async (req, res) => {
       res.status(500).send(findSelectedSecurityQuestionsCatchErrorResponse.toObject());
   }
 });
+
+/**
+ * findUserRole
+ */
+router.get('/:userName/role', async (req, res) => {
+  try
+  {
+    User.findOne({"userName": req.params.userName}, function(err, user)
+    {
+      if (err)
+      {
+        console.log(err);
+        const findUserRoleMongodbErrorResponse = new ErrorResponse('500', 'Internal server error', err);
+        res.status(500).send(findUserRoleMongodbErrorResponse.toObject());
+      }
+      else 
+      {
+        console.log(user);
+        const findUserRoleResponse = new BaseResponse('200', 'Query successful', user.role);
+        res.json(findUserRoleResponse.toObject());
+      }
+    })
+  }
+  catch (e)
+  {
+    console.log(e);
+    const findUserRoleCatchErrorResponse = new ErrorResponse('500', 'Internal server error', e.message);
+    res.status.send(500).send(findUserRoleCatchErrorResponse.toObject());
+  }
+})
+
 module.exports = router;
 
