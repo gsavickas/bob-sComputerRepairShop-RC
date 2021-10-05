@@ -55,9 +55,9 @@ router.post('/:userName', async(req, res) =>{
 /**
  * FindPurchaseByService
  */
-router.get('/purchase-graph', async(req, res) =>{
+router.get('/purchases-graph', async(req, res) =>{
     try{
-        invoice.aggregate([
+        Invoice.aggregate([
             {
                 $unwind: '$lineItems'
             },
@@ -81,7 +81,7 @@ router.get('/purchase-graph', async(req, res) =>{
                     '_id.title': 1
                 }
             }
-        ],  function(err, purchaseGraph)
+        ],  function(err, purchasesGraph)
         {
             if(err)
             {
@@ -92,8 +92,8 @@ router.get('/purchase-graph', async(req, res) =>{
             else
             {
                 console.log(purchaseGraph);
-                const findPurchaseBsyServiceGraphResponse = new BaseResponse('200', 'Query successful', purchaseGraph);
-                res.json(findPurchaseBsyServiceGraphResponse.toObject());
+                const findPurchasesByServiceGraphResponse = new BaseResponse('200', 'Query successful', purchaseGraph);
+                res.json(findPurchasesByServiceGraphResponse.toObject());
             }
         })
         

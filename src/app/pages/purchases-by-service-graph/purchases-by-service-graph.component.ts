@@ -30,7 +30,7 @@ export class PurchasesByServiceGraphComponent implements OnInit {
 
       // loop over the purchases to split out the services and item count
       for (const item of this.purchases){
-        this.labels.push(item._ide.title);
+        this.labels.push(item._id.title);
         this.itemCount.push(item.count);
       }
 
