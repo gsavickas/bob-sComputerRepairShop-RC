@@ -15,14 +15,10 @@
 
 .products{
   padding: 5px 20px;
-  display:grid;
-  grid-gap: 15px;
-  grid-template-columns: auto auto auto auto;
+ justify-content: center;
   line-height:29px;
-  
-  
 }
 
-mat-card-title mat-checkbox {
-  font-size: 18px !important;
+.h1 {
+font-size: 100px;
 }

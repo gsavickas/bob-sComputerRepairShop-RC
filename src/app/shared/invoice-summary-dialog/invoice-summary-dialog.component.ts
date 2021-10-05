@@ -15,19 +15,20 @@ import { Invoice } from '../models/invoice'
    styleUrls: ['./invoice-summary-dialog.component.css'],
  })
  export class InvoiceSummaryDialogComponent implements OnInit {
+   //Local variables for the items
   invoice: Invoice;
   username: string;
   orderDate: string;
   total: number;
   labor: number;
   parts: number;
-
+//return the data
    constructor(private dialogRef: MatDialogRef<InvoiceSummaryDialogComponent>, @Inject(MAT_DIALOG_DATA) data)  {
      this.invoice = data.invoice;
      // invoice model values
     console.log(`Parts amount: ${this.invoice.partsAmount}`)
     console.log(`Labor amount: ${this.invoice.getLaborAmount()}`)
-
+//Show the amount
     this.username = this.invoice.getUsername();
     this.orderDate = this.invoice.getOrderDate();
     this.parts = this.invoice.partsAmount;
