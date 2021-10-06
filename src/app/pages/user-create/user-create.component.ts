@@ -46,6 +46,7 @@ export class UserCreateComponent implements OnInit {
       phoneNumber: this.form.controls.phoneNumber.value,
       address: this.form.controls.address.value,
       email: this.form.controls.email.value,
+      role: this.form.controls.role.value
     };
 //Calls the User service
     this.userService.createUser(newUser).subscribe(res =>{

@@ -29,13 +29,13 @@
 </button>
 <mat-menu #session="matMenu" x-position="before">
 
-  <button mat-menu-item [matMenuTriggerFor]="configs">
+  <button *ngIf="userRole && userRole['role'] === 'admin'" mat-menu-item [matMenuTriggerFor]="configs">
     <mat-icon>settings</mat-icon>
     Configurations
   </button>
 
   <mat-menu #configs="matMenu">
-    <button mat-menu-item routerLink="/users">
+    <button  mat-menu-item routerLink="/users">
     <mat-icon>person_add</mat-icon>
     Users
   </button>

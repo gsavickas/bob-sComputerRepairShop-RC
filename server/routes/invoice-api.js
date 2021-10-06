@@ -4,9 +4,11 @@
  * Date: 09/29/21
  * Description: Invoice API
  */
-
-const { InvokeFunctionExpr } = require("@angular/compiler");
-const ErrorResponse = require("../services/error-response");
+const express = require('express');
+const Invoice = require('../models/invoice');
+const User = require('../models/user')
+const ErrorResponse = require('../services/error-response');
+const BaseResponse = require('../services/base-response');
 const router = require("./security-question-api");
 
 
@@ -21,9 +23,9 @@ router.post('/:userName', async(req, res) =>{
     try{
         const newInvoice = {
             userName: req.params.userName,
-            lineItem: req.params.lineItem,
+            lineItems: req.body.lineItems,
             partsAmount: req.body.partsAmount,
-            labourAmount: req.body.labourAmount,
+            laborAmount: req.body.laborAmount,
             lineItemTotal: req.body.lineItemTotal,
             total: req.body.total
         }
@@ -81,7 +83,7 @@ router.get('/purchases-graph', async(req, res) =>{
                     '_id.title': 1
                 }
             }
-        ],  function(err, purchasesGraph)
+        ],  function(err, purchaseGraph)
         {
             if(err)
             {

@@ -50,10 +50,12 @@ const routes: Routes = [
         path: 'purchases-by-service-graph',
         component: PurchasesByServiceGraphComponent,
         canActivate: [RoleGuard]
+        
       },
       {
         path: 'users',
-        component: UserListComponent
+        component: UserListComponent,
+        canActivate: [RoleGuard]
       },
       {
         path:"contact-us",
