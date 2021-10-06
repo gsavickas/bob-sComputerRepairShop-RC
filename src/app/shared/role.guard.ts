@@ -1,6 +1,6 @@
-import { RoleService } from '../shared/services/role.service';
+import { RoleService } from './services/role.service';
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { map } from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ export class RoleGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     return this.roleService.findUserRole(this.cookieService.get('sessionuser')).pipe(map(res =>{
       console.log(res);
-      console.log(res['data'].role);
+     
       
       if(res['data'].role === 'admin'){
         return true;

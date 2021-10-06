@@ -11,7 +11,7 @@ import { DeleteRecordDialogComponent } from './../../shared/delete-record-dialog
 import { MatDialog } from '@angular/material/dialog';
 import { Role } from './../../shared/models/role.interface';
 import { RoleService } from './../../shared/services/role.service';
-import { Message } from 'primeng/api';
+import { Message } from 'primeng/api/message';
 
 
 @Component({

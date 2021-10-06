@@ -10,7 +10,7 @@
 
  const User = require('../models/user');
  const bcrypt = require('bcrypt');
- const Employee = require("../models/user");
+ 
  const router = express.Router();
  const BaseResponse = require('../services/base-response');
  const ErrorResponse = require('../services/error-response');
@@ -232,7 +232,12 @@ router.put('/:id', async (req, res) => {
     }
   });
 
-  //This is the api for findSelectedSecurityQuestions
+
+
+
+
+//-------------------------------findSelectedSecurityQuestions api-------------------------------//
+
 
 //Here we do a get request using the username/security-questions.
 router.get('/:userName/security-questions', async (req, res) => {
@@ -266,6 +271,10 @@ router.get('/:userName/security-questions', async (req, res) => {
   }
 });
 
+
+
+
+//-------------------------------findSelectedSecurityQuestions api-------------------------------//
 /**
  * findUserRole
  */

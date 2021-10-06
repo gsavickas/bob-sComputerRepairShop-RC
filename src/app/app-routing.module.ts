@@ -37,6 +37,13 @@ import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-g
 import { RoleGuard } from './shared/role.guard';
 import {MatCheckboxModule} from '@angular/material/checkbox' 
 
+import { RoleListComponent } from './pages/role-list/role-list.component';
+import { RoleCreateComponent } from './pages/role-create/role-create.component';
+import { RoleDetailsComponent } from './pages/role-details/role-details.component';
+import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
+import { RoleGuard } from './shared/role.guard';
+import {MatCheckboxModule} from '@angular/material/checkbox' 
+
 const routes: Routes = [
   {
     path: '',
@@ -50,10 +57,12 @@ const routes: Routes = [
         path: 'purchases-by-service-graph',
         component: PurchasesByServiceGraphComponent,
         canActivate: [RoleGuard]
+        
       },
       {
         path: 'users',
-        component: UserListComponent
+        component: UserListComponent,
+        canActivate: [RoleGuard]
       },
       {
         path:"contact-us",
@@ -87,11 +96,6 @@ const routes: Routes = [
       },
 
       {
-        path: 'services',
-        component: ServicesComponent 
-      },
-
-      {
         path: 'roles',
         component: RoleListComponent
       },
@@ -102,7 +106,8 @@ const routes: Routes = [
       {
         path: 'roles/:roleId',
         component: RoleDetailsComponent
-      }
+      },
+      
 
     
     ],

@@ -10,7 +10,7 @@ import { InvoiceSummaryDialogComponent } from './../../shared/invoice-summary-di
 import { Product } from './../../shared/models/product.interface';
 import { InvoiceService } from './../..//shared/services/invoice.service';
 import {ProductService } from './../../shared/services/product.service';
-import {Router } from '@angular/router'
+import {Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { LineItem } from '../../shared/models/line-item.interface';
@@ -26,7 +26,7 @@ import { Invoice } from './../../shared/models/invoice';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+//fields
   form: FormGroup;
   username: string;
   products: Product[];
@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
   errorMessages: Message[];
   successMessages: Message[];
 
+//calls functions
   constructor(private cookieService: CookieService, private fb: FormBuilder, private router: Router, private productService: ProductService, private invoiceService: InvoiceService, private dialogRef: MatDialog) { 
 
     this.username = this.cookieService.get('sessionuser');
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit {
     this.products = this.productService.getProducts();
 
     this.invoice = new Invoice(this.username);
-
+//Line item will be an empty array
     this.lineItems = [];
 
     console.log(this.products);
@@ -58,13 +59,13 @@ export class HomeComponent implements OnInit {
 
     console.log('generateInvoice() this.products');
     console.log(this.products);
-
+//Loops over all the products and uses the ones that have been checked
     for (let product of this.products) {
       if (product.checked){
         this.lineItems.push(product);
       }
     }
-
+//if they select items
     if(this.lineItems.length > 0){
       this.invoice.setLineItems(this.lineItems);
 
@@ -91,6 +92,8 @@ export class HomeComponent implements OnInit {
               { severity: 'success', summary: "Success", detail: "Your order has been processed successfully!"}
             ]
           })
+          //reloads products when canceled
+          
         }else {
           console.log('order canceled');
           this.reloadProducts();
@@ -98,6 +101,7 @@ export class HomeComponent implements OnInit {
           this.invoice.clear();
         }
       })
+      //otherwise if they dont select item order will be canceled
     }else {
       this.errorMessages = [
         { severity: 'error', summary: 'Error', detail: 'You must select at least one service.'}

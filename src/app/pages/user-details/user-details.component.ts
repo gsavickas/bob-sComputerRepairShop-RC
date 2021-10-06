@@ -12,6 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './../../shared/user.service';
 import { User } from './../../shared/user.interface';
+import { Role } from './../../shared/models/role.interface';
+import { RoleService } from 'src/app/shared/services/role.service';
 
 @Component({
   selector: 'app-user-details',
@@ -26,10 +28,10 @@ export class UserDetailsComponent implements OnInit {
   user: User;
   userId: string;
   form: FormGroup;
-  roles: any;
+  roles: Role[];
 
   //Here we pass through the imports we need for these functions. 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder, private router: Router, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder, private router: Router, private userService: UserService, private roleService: RoleService) {
 
     //Here we map the parameter userId to this variable. 
     this.userId = this.route.snapshot.paramMap.get('userId');
@@ -50,6 +52,13 @@ export class UserDetailsComponent implements OnInit {
       this.form.controls.phoneNumber.setValue(this.user.phoneNumber);
       this.form.controls.address.setValue(this.user.address);
       this.form.controls.email.setValue(this.user.email);
+      this.form.controls.role.setValue(this.user.role['role']);
+
+      console.log(this.user);
+
+      this.roleService.findAllRoles().subscribe(res => {
+        this.roles = res.data;
+      })
     });
    }
 
@@ -61,6 +70,7 @@ export class UserDetailsComponent implements OnInit {
       phoneNumber:[null, Validators.compose([Validators.required])],
       address: [null, Validators.compose([Validators.required])],
       email: [null, Validators.compose([Validators.required, Validators.email])],
+      role: [null, Validators.compose([Validators.required])]
     });
   }
 
@@ -71,7 +81,8 @@ export class UserDetailsComponent implements OnInit {
       lastName: this.form.controls.lastName.value, 
       phoneNumber: this.form.controls.phoneNumber.value,
       address: this.form.controls.address.value,
-      email: this.form.controls.email.value
+      email: this.form.controls.email.value,
+      role: this.form.controls.role.value
     };
 
     //This calls our updateUser function from our user service to update the user.

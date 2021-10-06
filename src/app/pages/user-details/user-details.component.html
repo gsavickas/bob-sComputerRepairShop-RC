@@ -29,8 +29,20 @@
                         </mat-error>
                     </mat-form-field>
 
+                    <mat-form-field appearance="fill">
+                        <mat-label>Role</mat-label>
+                        <mat-select [formControl]="form.controls['role']">
+                            <mat-option *ngFor="let role of roles" [value]="role.text">{{ role.text }}</mat-option>
+                        </mat-select>
+
+                        <mat-error class="error" *ngIf="form.controls['role'].hasError('required') && form.controls['role'].touched">
+                            Role is a required field. 
+                        </mat-error>
+                    </mat-form-field>
+
                     <!--This creates the input field for phone number. -->
-                    <mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Phone Number</mat-label>
                         <input type="text" matInput [formControl]="form.controls['phoneNumber']"
                             placeholder="Phone number"/>
 
@@ -41,7 +53,8 @@
                     </mat-form-field>
 
                     <!--This creates the input field for address. -->
-                    <mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Address</mat-label>
                         <input type="text" matInput [formControl]="form.controls['address']"
                             placeholder="Address"/>
 
@@ -52,7 +65,8 @@
                     </mat-form-field>
 
                     <!--This creates the input field for email. -->
-                    <mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
                         <input type="text" matInput [formControl]="form.controls['email']" placeholder="Email"/>
 
                         <!--This is the error handling saying this is a required field. -->

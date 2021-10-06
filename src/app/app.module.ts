@@ -58,7 +58,6 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { ContactUsComponent  } from './pages/contact-us/contact-us.component';
 import { InvoiceComponent } from './pages/invoice/invoice.component';
-import { ServicesComponent } from './pages/services/services.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { TableModule } from 'primeng/table';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
@@ -90,7 +89,7 @@ import { ChartModule } from 'primeng/chart';
     ErrorComponent,
     ContactUsComponent,
     InvoiceComponent,
-    ServicesComponent,
+ 
     RoleListComponent,
     RoleCreateComponent,
     RoleDetailsComponent,

@@ -73,7 +73,7 @@
 <br/>
 <mat-card-actions align="end">
     <button mat-raised-button (click)="cancel()" color="primary">Cancel</button>
-    <button mat-raised-button [disabled]="!form.valid" color="accent">Submit</button>
+    <button (click)="createUser()" mat-raised-button [disabled]="!form.valid" color="accent"  >Submit</button>
 </mat-card-actions>
 </form>
 </mat-card>

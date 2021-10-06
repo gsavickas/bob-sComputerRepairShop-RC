@@ -5,8 +5,10 @@
  * Description: Invoice API
  */
 
-const { InvokeFunctionExpr } = require("@angular/compiler");
+const Invoice = require('../models/invoice');
+const User = require('../models/user');
 const ErrorResponse = require("../services/error-response");
+const BaseResponse = require('../services/base-response');
 const router = require("./security-question-api");
 
 
@@ -81,7 +83,7 @@ router.get('/purchases-graph', async(req, res) =>{
                     '_id.title': 1
                 }
             }
-        ],  function(err, purchasesGraph)
+        ],  function(err, purchaseGraph)
         {
             if(err)
             {
