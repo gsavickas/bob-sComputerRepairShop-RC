@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from './../../shared/user.interface';
+
+
 import { UserService } from './../../shared/user.service';
 
 @Component({
@@ -21,6 +23,7 @@ export class UserCreateComponent implements OnInit {
   userId: string;
   form: FormGroup;
   roles: any;
+ 
 
   constructor(private fb: FormBuilder, private router: Router, private userService: UserService) { }
 //Reaction form for user along with the validators

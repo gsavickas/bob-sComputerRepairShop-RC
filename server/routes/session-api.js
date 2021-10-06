@@ -59,6 +59,9 @@ const saltRounds = 10;
         }
      })
 
+
+     //-------------------------------User sign-in api -------------------------------//
+
 /**
  * User sign-in
  */
@@ -121,7 +124,9 @@ router.post('/signin', async(req, res) => {
     }
 });
 
-//This is the register user api. 
+
+//-------------------------------Register User api -------------------------------//
+
 
 //Here we do a post request to /register.
 router.post('/register', async (req, res) => {

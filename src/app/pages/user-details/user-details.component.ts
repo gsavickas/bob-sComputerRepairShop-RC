@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './../../shared/user.service';
 import { User } from './../../shared/user.interface';
-import { Role } from 'src/app/shared/models/role.interface';
+import { Role } from './../../shared/models/role.interface';
 import { RoleService } from 'src/app/shared/services/role.service';
 
 @Component({

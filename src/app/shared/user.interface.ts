@@ -5,6 +5,7 @@
  * Description: This sets up our user interface for the application. 
  */
 
+ import { Role } from "./models/role.interface";
 //This exports our User interface to the rest of the application. 
 export interface User {
     _id?: string;
@@ -15,5 +16,5 @@ export interface User {
     phoneNumber: string;
     address: string;
     email: string;
-    role: string;
+    role?: Role;
 }

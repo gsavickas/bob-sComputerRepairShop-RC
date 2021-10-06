@@ -23,10 +23,14 @@
 
 <!-- logged out-->
       <div fxFlex></div>
+       <!--Displays whos signed in-->
       <p style="color: white; font-size: 12px; margin-top: 17px;">Signed in as <b>{{ name }}</b></p>
+       <!--Button for main menu-->
 <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs"  mat-button style="color: rgb(255, 255, 255);">
   <mat-icon >person</mat-icon>
 </button>
+
+ <!--Reveals content of menu button-->
 <mat-menu #session="matMenu" x-position="before">
 
   <button *ngIf="userRole && userRole['role'] === 'admin'" mat-menu-item [matMenuTriggerFor]="configs">
@@ -51,13 +55,13 @@ Security Questions
 </button>
 
   </mat-menu>
-
+ <!--Button to reveal link to purchases link-->
   <button *ngIf="userRole && userRole['role'] === 'admin'" mat-menu-item [matMenuTriggerFor]="reports">
     <mat-icon>poll</mat-icon>
     Reports
   </button>
 
-
+ <!--Link to purchases pie graph-->
   <mat-menu #reports="matMenu">
     <button mat-menu-item routerLink="/purchases-by-service-graph">
     <mat-icon>pie_chart</mat-icon>
@@ -65,9 +69,8 @@ Security Questions
   Purchases by Service
   </mat-menu>
 
- 
+ <!--Sign out link-->
 <button mat-menu-item (click)="signout()" >
-  
   <mat-icon mat-button style="color: rgb(69, 69, 69);">exit_to_app</mat-icon>
   Sign out
 </button>
@@ -104,7 +107,7 @@ Security Questions
   </div>
 
 <br />
-
+ <!--Footer content-->
   <div fxLayout>
     <footer class="footer">
       <mat-toolbar class="footer-content">

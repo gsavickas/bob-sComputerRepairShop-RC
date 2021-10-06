@@ -26,6 +26,7 @@ const SecurityQuestionApi = require('./routes/security-question-api');
 const RoleApi = require('./routes/role-api');
 const InvoiceApi = require('./routes/invoice-api');
 
+
 /**
  * App configurations
  */

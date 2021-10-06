@@ -9,7 +9,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Message } from 'primeng/api';
+import { Message } from 'primeng/api/message';
 import { RoleService } from './../../shared/services/role.service';
 import { Role } from './../../shared/models/role.interface';
 
@@ -46,6 +46,7 @@ export class RoleCreateComponent implements OnInit {
       this.router.navigate(['/roles']);
       //If there is an error message we use this to display it to the user. 
     }, err => {
+      console.log(err);
       this.errorMessages = [
         { severity: 'error', summary: 'Error', detail: err.message}
       ];

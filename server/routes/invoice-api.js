@@ -4,10 +4,10 @@
  * Date: 09/29/21
  * Description: Invoice API
  */
-const express = require('express');
+
 const Invoice = require('../models/invoice');
-const User = require('../models/user')
-const ErrorResponse = require('../services/error-response');
+const User = require('../models/user');
+const ErrorResponse = require("../services/error-response");
 const BaseResponse = require('../services/base-response');
 const router = require("./security-question-api");
 
@@ -23,9 +23,9 @@ router.post('/:userName', async(req, res) =>{
     try{
         const newInvoice = {
             userName: req.params.userName,
-            lineItems: req.body.lineItems,
+            lineItem: req.params.lineItem,
             partsAmount: req.body.partsAmount,
-            laborAmount: req.body.laborAmount,
+            labourAmount: req.body.labourAmount,
             lineItemTotal: req.body.lineItemTotal,
             total: req.body.total
         }
