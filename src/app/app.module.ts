@@ -31,7 +31,7 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { DeleteRecordDialogComponent } from './shared/delete-record-dialog/delete-record-dialog.component';
 import { MatCardModule} from '@angular/material/card';
-
+import { InvoiceComponent } from './pages/invoice/invoice.component';
 
 
 
@@ -57,7 +57,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { ContactUsComponent  } from './pages/contact-us/contact-us.component';
-import { InvoiceComponent } from './pages/invoice/invoice.component';
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { TableModule } from 'primeng/table';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';

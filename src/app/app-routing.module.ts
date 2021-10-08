@@ -28,14 +28,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { InvoiceComponent } from './pages/invoice/invoice.component';
-import { ServicesComponent } from './pages/services/services.component';
-import { RoleListComponent } from './pages/role-list/role-list.component';
-import { RoleCreateComponent } from './pages/role-create/role-create.component';
-import { RoleDetailsComponent } from './pages/role-details/role-details.component';
-import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
-import { RoleGuard } from './shared/role.guard';
-import {MatCheckboxModule} from '@angular/material/checkbox' 
+
 
 import { RoleListComponent } from './pages/role-list/role-list.component';
 import { RoleCreateComponent } from './pages/role-create/role-create.component';
@@ -43,6 +36,9 @@ import { RoleDetailsComponent } from './pages/role-details/role-details.componen
 import { PurchasesByServiceGraphComponent } from './pages/purchases-by-service-graph/purchases-by-service-graph.component';
 import { RoleGuard } from './shared/role.guard';
 import {MatCheckboxModule} from '@angular/material/checkbox' 
+
+
+
 
 const routes: Routes = [
   {

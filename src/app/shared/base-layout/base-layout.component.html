@@ -5,9 +5,7 @@
  * Description: signin
  */
 -->
-
 <div fxLayout="column">
-
   <!-- navigation -->
   <nav fxFlex >
     <mat-toolbar style="background-color: rgb(19, 89, 170);">
@@ -20,7 +18,6 @@
         <button class="navbar-link" routerLink="/about-us" mat-button style="color: antiquewhite;">About Us</button>
         <button class="navbar-link" routerLink="/contact-us" mat-button style="color: antiquewhite;">Contact</button>
       </div>
-
 <!-- logged out-->
       <div fxFlex></div>
        <!--Displays whos signed in-->
@@ -29,38 +26,31 @@
 <button [matMenuTriggerFor]="session" mat-icon-button class="ml-xs"  mat-button style="color: rgb(255, 255, 255);">
   <mat-icon >person</mat-icon>
 </button>
-
  <!--Reveals content of menu button-->
 <mat-menu #session="matMenu" x-position="before">
-
   <button *ngIf="userRole && userRole['role'] === 'admin'" mat-menu-item [matMenuTriggerFor]="configs">
     <mat-icon>settings</mat-icon>
     Configurations
   </button>
-
   <mat-menu #configs="matMenu">
     <button  mat-menu-item routerLink="/users">
     <mat-icon>person_add</mat-icon>
     Users
   </button>
-
   <button mat-menu-item routerLink="/roles">
   <mat-icon>security</mat-icon>
   Roles
 </button>
-
 <button mat-menu-item routerLink="/security-questions">
 <mat-icon>help</mat-icon>
 Security Questions
 </button>
-
   </mat-menu>
  <!--Button to reveal link to purchases link-->
   <button *ngIf="userRole && userRole['role'] === 'admin'" mat-menu-item [matMenuTriggerFor]="reports">
     <mat-icon>poll</mat-icon>
     Reports
   </button>
-
  <!--Link to purchases pie graph-->
   <mat-menu #reports="matMenu">
     <button mat-menu-item routerLink="/purchases-by-service-graph">
@@ -68,100 +58,36 @@ Security Questions
   </button>
   Purchases by Service
   </mat-menu>
-
  <!--Sign out link-->
 <button mat-menu-item (click)="signout()" >
   <mat-icon mat-button style="color: rgb(69, 69, 69);">exit_to_app</mat-icon>
   Sign out
 </button>
 </mat-menu>
-
   <mat-menu #reports="matMenu">
     <button mat-menu-item routerLink="/purchases-by-service-graph">
     <mat-icon>pie_chart</mat-icon>
   </button>
   Purchases by Service
   </mat-menu>
-
-
   <mat-menu #reports="matMenu">
     <button mat-menu-item routerLink="/purchases-by-service-graph">
     <mat-icon>pie_chart</mat-icon>
   </button>
   Purchases by Service
   </mat-menu>
-
-  <button mat-menu-item [matMenuTriggerFor]="configs">
-    <mat-icon>settings</mat-icon>
-    Configurations
-  </button>
-
-  <mat-menu #configs="matMenu">
-    <button mat-menu-item routerLink="/users">
-    <mat-icon>person_add</mat-icon>
-    Users
-  </button>
-
-  <button mat-menu-item routerLink="/roles">
-  <mat-icon>security</mat-icon>
-  Roles
-</button>
-
-<button mat-menu-item routerLink="/security-questions">
-<mat-icon>help</mat-icon>
-Security Questions
-</button>
-
-  </mat-menu>
-
-  <button *ngIf="userRole && userRole['role'] === 'admin'" mat-menu-item [matMenuTriggerFor]="reports">
-    <mat-icon>poll</mat-icon>
-    Reports
-  </button>
-
-
-  <mat-menu #reports="matMenu">
-    <button mat-menu-item routerLink="/purchases-by-service-graph">
-    <mat-icon>pie_chart</mat-icon>
-  </button>
-  Purchases by Service
-  </mat-menu>
-
- 
-<button mat-menu-item (click)="signout()" >
-  
-  <mat-icon mat-button style="color: rgb(69, 69, 69);">exit_to_app</mat-icon>
-  Sign out
-</button>
-</mat-menu>
-
-  <mat-menu #reports="matMenu">
-    <button mat-menu-item routerLink="/purchases-by-service-graph">
-    <mat-icon>pie_chart</mat-icon>
-  </button>
-  Purchases by Service
-  </mat-menu>
-
-
     </mat-toolbar>
   </nav>
-
   <!-- main content -->
 <div>
-
     <mat-card class="mat-card-top">
     <mat-card-content>
       <router-outlet></router-outlet>
     </mat-card-content>
     </mat-card>
   </div>
-
 <br />
-<<<<<<< HEAD
-
-=======
  <!--Footer content-->
->>>>>>> 6d9fe7001edfb03631cce7e02b0a33166971c801
   <div fxLayout>
     <footer class="footer">
       <mat-toolbar class="footer-content">
@@ -174,8 +100,3 @@ Security Questions
     </footer>
   </div>
 </div>
- 
-
-
- 
-
