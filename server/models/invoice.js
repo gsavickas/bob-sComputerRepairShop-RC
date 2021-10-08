@@ -9,7 +9,8 @@
  const mongoose = require('mongoose');
  const Schema = mongoose.Schema;
  
- const lineItemDocument = require('../schemas/line-item');
+const lineItemDocument = require('../schemas/line-item');
+
  //invoice schema
  const invoiceSchema = new Schema({
      userName: { type: String },

@@ -1,15 +1,12 @@
-/**
- * * Title: invoice-api.js
- * Author: Larry Ohaka
- * Date: 09/29/21
- * Description: Invoice API
- */
-
+const express = require('express');
 const Invoice = require('../models/invoice');
 const User = require('../models/user');
 const ErrorResponse = require("../services/error-response");
 const BaseResponse = require('../services/base-response');
-const router = require("./security-question-api");
+
+const router = express.Router();
+
+
 
 
 //-------------------------------CreateInvoice API modified by Larry------------------------------//
@@ -23,7 +20,7 @@ router.post('/:userName', async(req, res) =>{
     try{
         const newInvoice = {
             userName: req.params.userName,
-            lineItem: req.params.lineItem,
+            lineItems: req.body.lineItems,
             partsAmount: req.body.partsAmount,
             labourAmount: req.body.labourAmount,
             lineItemTotal: req.body.lineItemTotal,
