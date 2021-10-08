@@ -12,3 +12,5 @@ const lineItemSchema = new Schema({
     title: { type: String },
     price: { type: Number },
 })
+
+module.exports = lineItemSchema;

@@ -55,7 +55,7 @@ export class Invoice {
     }
 
     getTotal(): number {
-        return Number(this.partsAmount) + Number(this.getLaborAmount()) + Number(this.getLaborAmount()) + Number(this.getLineItemTotal());
+        return Number(this.partsAmount) + Number(this.getLaborAmount()) + Number(this.getLineItemTotal());
     }
 
     clear() {
