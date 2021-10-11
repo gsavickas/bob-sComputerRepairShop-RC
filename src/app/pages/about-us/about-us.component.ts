@@ -1,3 +1,10 @@
+/**
+ * * Title: about-us.component
+ * Author: Larry Ohaka
+ * Date: 08/18/21
+ * Description: about us page
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

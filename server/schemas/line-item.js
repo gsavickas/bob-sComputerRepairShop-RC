@@ -8,6 +8,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Line Item schema with title and price variables
 const lineItemSchema = new Schema({
     title: { type: String },
     price: { type: Number },

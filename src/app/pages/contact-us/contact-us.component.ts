@@ -1,3 +1,9 @@
+// * * Title: about.component.ts
+//  * Author: Grayton Savickas
+//  * Date: 09/27/21
+//  * Description: contact-us page
+//  */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

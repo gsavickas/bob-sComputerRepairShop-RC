@@ -5,6 +5,7 @@
  * Description: Navigation and Layout
  */
 
+// IServices interface with name, price and checked fields
  export interface IService {
     name: string;
     price: number;

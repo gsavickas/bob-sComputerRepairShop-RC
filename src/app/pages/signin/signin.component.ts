@@ -30,6 +30,7 @@ export class SigninComponent implements OnInit {
     });
   }
 
+  // compares provided username and password with databases entries for the signed in user
   signin(): void {
     const userName = this.form.controls.userName.value;
     const password = this.form.controls.password.value;

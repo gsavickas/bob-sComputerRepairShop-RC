@@ -1,3 +1,10 @@
+/**
+ * * Title: invoice-api
+ * Author: Larry, Grayton
+ * Date: 09/29/21
+ * Description: This is the api for invoice finding and creation
+ */
+
 const express = require('express');
 const Invoice = require('../models/invoice');
 const User = require('../models/user');

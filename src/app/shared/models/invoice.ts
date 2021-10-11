@@ -24,19 +24,22 @@ export class Invoice {
         this.lineItems = [];
     }
 
+    // return the userName
     getUsername(): string {
         return this.username;
     }
 
+    // return the lineItems
     setLineItems(lineItems: LineItem[]): void {
         this.lineItems = lineItems;
     }
 
-
+    // return the the result of getLineItems
     getLineItems(): LineItem[] {
        return this.lineItems;
     }
 
+    // return the LineItemTotal
     getLineItemTotal(): number {
         let total = 0;
         for (let lineItem of this.lineItems) {
@@ -46,18 +49,22 @@ export class Invoice {
         return Number(total);
     }
 
+    // Find the getLaborAmount
     getLaborAmount(): number {
         return Number(this.laborHours) * Number(this.LABOR_RATE);
     }
     
+    // provide the OrderData
     getOrderDate(): string {
         return this.orderDate;
     }
 
+    // provide the total
     getTotal(): number {
         return Number(this.partsAmount) + Number(this.getLaborAmount()) + Number(this.getLineItemTotal());
     }
 
+    // clear the invoice
     clear() {
         this.partsAmount = 0;
         this.laborHours = 0;

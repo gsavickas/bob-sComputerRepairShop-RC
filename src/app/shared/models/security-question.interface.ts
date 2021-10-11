@@ -5,6 +5,7 @@
  * Description: invoice model
  */
 
+// Security Question
 export interface SecurityQuestion {
     _id?: string;
     text: string;
